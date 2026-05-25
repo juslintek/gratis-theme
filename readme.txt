@@ -5,7 +5,7 @@ Tested up to: 6.9
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: full-site-editing, block-patterns, custom-colors, custom-typography, dark-mode, rtl-language-support, wide-blocks, accessibility-ready, e-commerce, blog, portfolio
+Tags: full-site-editing, block-patterns, custom-colors, custom-typography, editor-style, rtl-language-support, wide-blocks, e-commerce, one-column
 
 Everything premium themes charge for. Forever free.
 
