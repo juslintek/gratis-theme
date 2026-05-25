@@ -16,6 +16,9 @@ add_action('after_setup_theme', function () {
     load_theme_textdomain('gratis', get_template_directory() . '/languages');
 });
 
+// ── Cache Manager Integration ─────────────────────────────────────────────────
+require_once get_template_directory() . '/inc/cache-integration.php';
+
 
 
 // Fix Lithuanian quote conversion via output buffer (locale-safe)
