@@ -43,3 +43,48 @@
 
 
 
+
+/* ── Code Blocks ─────────────────────────────────────────────────────────── */
+.wp-block-code{background:#1a1e2e;border:1px solid rgba(255,255,255,0.08);border-radius:var(--wp--custom--radius--lg);overflow-x:auto;font-family:var(--wp--preset--font-family--mono);font-size:0.875rem;line-height:1.7;color:#e2e8f0}
+.wp-block-code code{background:none;padding:0;color:inherit}
+pre.wp-block-preformatted{background:#1a1e2e;border:1px solid rgba(255,255,255,0.08);border-radius:var(--wp--custom--radius--lg);padding:1.5rem;font-family:var(--wp--preset--font-family--mono);font-size:0.875rem;line-height:1.7;color:#e2e8f0;overflow-x:auto}
+code{background:rgba(255,255,255,0.08);padding:0.15em 0.4em;border-radius:4px;font-size:0.875em;font-family:var(--wp--preset--font-family--mono)}
+
+/* ── Cards (feature grid items) ──────────────────────────────────────────── */
+.wp-block-column{transition:transform 200ms ease,box-shadow 200ms ease}
+.wp-block-columns .wp-block-column[style*="border"]{background:rgba(255,255,255,0.02)}
+.wp-block-columns .wp-block-column[style*="border"]:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.wp-block-button__link{transition:transform 150ms ease,box-shadow 150ms ease,background 150ms ease}
+.wp-block-button__link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(34,197,94,0.3)}
+.wp-block-button.is-style-outline .wp-block-button__link{border:2px solid rgba(255,255,255,0.3);color:#fff}
+.wp-block-button.is-style-outline .wp-block-button__link:hover{border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05);box-shadow:0 4px 12px rgba(255,255,255,0.1)}
+
+/* ── Cover block polish ──────────────────────────────────────────────────── */
+.wp-block-cover{overflow:hidden}
+.wp-block-cover__inner-container{position:relative;z-index:1}
+
+/* ── Separator ───────────────────────────────────────────────────────────── */
+.wp-block-separator{border-color:rgba(255,255,255,0.1)!important;opacity:1}
+
+/* ── Navigation polish ───────────────────────────────────────────────────── */
+.wp-block-navigation-item__content{padding:8px 12px!important;border-radius:6px;transition:background 150ms ease}
+.wp-block-navigation-item__content:hover{background:rgba(255,255,255,0.08)}
+.wp-block-navigation-item--current .wp-block-navigation-item__content{color:#fff!important;background:rgba(255,255,255,0.1)}
+
+/* ── Smooth scroll ───────────────────────────────────────────────────────── */
+html{scroll-behavior:smooth}
+
+/* ── Selection ───────────────────────────────────────────────────────────── */
+::selection{background:var(--wp--preset--color--primary);color:#fff}
+
+/* ── Blog cards ──────────────────────────────────────────────────────────── */
+.wp-block-post-template .wp-block-group[style*="border"]{transition:transform 200ms ease,border-color 200ms ease}
+.wp-block-post-template .wp-block-group[style*="border"]:hover{transform:translateY(-3px);border-color:rgba(255,255,255,0.15)!important}
+
+/* ── Responsive fixes ────────────────────────────────────────────────────── */
+@media(max-width:781px){
+  .wp-block-columns{flex-direction:column!important}
+  .wp-block-cover{min-height:70vh!important}
+}

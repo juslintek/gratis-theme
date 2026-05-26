@@ -27,10 +27,10 @@
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
 <div class="wp-block-buttons">
 <!-- wp:button {"style":{"typography":{"fontSize":"1.1rem"},"spacing":{"padding":{"top":"1rem","bottom":"1rem","left":"2.5rem","right":"2.5rem"}},"border":{"radius":"8px"}}} -->
-<div class="wp-block-button" style="font-size:1.1rem"><a class="wp-block-button__link" style="border-radius:8px;padding-top:1rem;padding-right:2.5rem;padding-bottom:1rem;padding-left:2.5rem">Get Started Free →</a></div>
+<div class="wp-block-button" style="font-size:1.1rem"><a class="wp-block-button__link" href="/documentation/" style="border-radius:8px;padding-top:1rem;padding-right:2.5rem;padding-bottom:1rem;padding-left:2.5rem">Get Started Free →</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"is-style-outline","style":{"typography":{"fontSize":"1.1rem"},"spacing":{"padding":{"top":"1rem","bottom":"1rem","left":"2.5rem","right":"2.5rem"}},"border":{"radius":"8px"}}} -->
-<div class="wp-block-button is-style-outline" style="font-size:1.1rem"><a class="wp-block-button__link" style="border-radius:8px;padding-top:1rem;padding-right:2.5rem;padding-bottom:1rem;padding-left:2.5rem">View on GitHub</a></div>
+<div class="wp-block-button is-style-outline" style="font-size:1.1rem"><a class="wp-block-button__link" href="https://github.com/juslintek/gratis-suite" style="border-radius:8px;padding-top:1rem;padding-right:2.5rem;padding-bottom:1rem;padding-left:2.5rem">View on GitHub</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
