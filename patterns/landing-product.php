@@ -39,6 +39,31 @@
 <p class="has-text-align-center" style="font-size:0.875rem">No credit card. No lock-in. GPL-2.0 licensed.</p>
 <!-- /wp:paragraph -->
 
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|12"}},"border":{"radius":"12px","width":"1px","color":"rgba(255,255,255,0.1)"},"color":{"background":"#0d1117"}},"layout":{"type":"constrained","contentSize":"640px"}} -->
+<div class="wp-block-group" style="border-color:rgba(255,255,255,0.1);border-width:1px;border-radius:12px;background-color:#0d1117;margin-top:var(--wp--preset--spacing--12)">
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"10px","bottom":"10px","left":"16px","right":"16px"}},"border":{"bottom":{"color":"rgba(255,255,255,0.08)","width":"1px"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group" style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.08)">
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"12px"},"color":{"text":"rgba(255,255,255,0.4)"}}} -->
+<p style="font-size:12px;color:rgba(255,255,255,0.4)">● ● ●&nbsp;&nbsp;&nbsp;terminal</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:code {"style":{"spacing":{"padding":{"top":"1.25rem","bottom":"1.25rem","left":"1.25rem","right":"1.25rem"}},"border":{"radius":"0"},"typography":{"fontSize":"13px"}}} -->
+<pre class="wp-block-code" style="font-size:13px;padding:1.25rem;border-radius:0;background:transparent;border:none"><code><span style="color:#22C55E">$</span> wp gratis-cache status
+
+<span style="color:#60a5fa">Backends:</span>
+  Volatile: <span style="color:#22C55E">redis</span>
+  Persistent: <span style="color:#22C55E">sqlite</span>
+
+<span style="color:#60a5fa">Today's Stats:</span>
+  Hits: 5,679 | Misses: 878 | Ratio: <span style="color:#22C55E">86.6%</span>
+
+<span style="color:#60a5fa">Extensions:</span>
+  <span style="color:#22C55E">✓</span> ext-redis  <span style="color:#22C55E">✓</span> ext-sqlite3  <span style="color:#22C55E">✓</span> ext-imagick</code></pre>
+<!-- /wp:code -->
+</div>
+<!-- /wp:group -->
+
 </div>
 <!-- /wp:group -->
 
@@ -129,6 +154,28 @@
 
 </div>
 <!-- /wp:columns -->
+
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}},"border":{"top":{"color":"rgba(255,255,255,0.06)","width":"1px"}}},"layout":{"type":"constrained","contentSize":"900px"}} -->
+<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70);border-top:1px solid rgba(255,255,255,0.06)">
+
+<!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} -->
+<h2 class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--50)">Why Gratis over alternatives?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table {"style":{"typography":{"fontSize":"0.9rem"},"color":{"text":"rgba(255,255,255,0.8)"}}} -->
+<figure class="wp-block-table"><table style="font-size:0.9rem;color:rgba(255,255,255,0.8)"><thead><tr><th>Feature</th><th>WP Rocket ($59/yr)</th><th>Jetpack ($300/yr)</th><th>UpdraftPlus ($70/yr)</th><th style="color:#22C55E">Gratis (Free)</th></tr></thead><tbody><tr><td>Object cache + Redis</td><td>❌</td><td>❌</td><td>❌</td><td style="color:#22C55E">✓</td></tr><tr><td>Request tracing</td><td>❌</td><td>❌</td><td>❌</td><td style="color:#22C55E">✓</td></tr><tr><td>Full page cache</td><td>✓</td><td>✓</td><td>❌</td><td style="color:#22C55E">✓</td></tr><tr><td>Cloud backups</td><td>❌</td><td>✓</td><td>Paid</td><td style="color:#22C55E">✓ (local free)</td></tr><tr><td>AI assistant</td><td>❌</td><td>Paid</td><td>❌</td><td style="color:#22C55E">✓ (BYOM)</td></tr><tr><td>Block theme</td><td>❌</td><td>❌</td><td>❌</td><td style="color:#22C55E">✓ (35 patterns)</td></tr><tr><td>WP-CLI</td><td>❌</td><td>Limited</td><td>Limited</td><td style="color:#22C55E">✓ (full)</td></tr><tr><td>Open source</td><td>❌</td><td>Partial</td><td>Partial</td><td style="color:#22C55E">✓ (GPL-2.0)</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|12"}}},"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
+<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--12)">
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.875rem"},"color":{"text":"rgba(255,255,255,0.5)"}}} -->
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5)">⭐ Open source on GitHub · 5 plugins · 35+ patterns · 17ms avg response</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
 
 </div>
 <!-- /wp:group -->

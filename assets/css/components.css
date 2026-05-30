@@ -88,3 +88,9 @@ html{scroll-behavior:smooth}
   .wp-block-columns{flex-direction:column!important}
   .wp-block-cover{min-height:70vh!important}
 }
+
+/* ── Tables ──────────────────────────────────────────────────────────────── */
+.wp-block-table table{border-collapse:collapse;width:100%}
+.wp-block-table th,.wp-block-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08);text-align:left}
+.wp-block-table th{font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;color:rgba(255,255,255,0.5)}
+.wp-block-table tr:hover td{background:rgba(255,255,255,0.03)}

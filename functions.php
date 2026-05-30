@@ -16,6 +16,29 @@ add_action('after_setup_theme', function () {
     load_theme_textdomain('gratis', get_template_directory() . '/languages');
 });
 
+// ── Favicon + OG Meta ─────────────────────────────────────────────────────────
+add_action('wp_head', function () {
+    $icon = get_template_directory_uri() . '/assets/favicon.svg';
+    echo '<link rel="icon" href="' . esc_url($icon) . '" type="image/svg+xml">' . "\n";
+
+    // Open Graph
+    $title = wp_get_document_title();
+    $desc = get_bloginfo('description');
+    $url = is_singular() ? get_permalink() : home_url('/');
+    if (is_singular()) {
+        $post = get_post();
+        $desc = $post->post_excerpt ?: wp_trim_words(strip_tags($post->post_content), 30);
+    }
+    echo '<meta property="og:type" content="website">' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr($desc) . '">' . "\n";
+    echo '<meta property="og:url" content="' . esc_url($url) . '">' . "\n";
+    echo '<meta property="og:site_name" content="GRATIS">' . "\n";
+    echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+    echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
+    echo '<meta name="twitter:description" content="' . esc_attr($desc) . '">' . "\n";
+}, 1);
+
 // ── Cache Manager Integration ─────────────────────────────────────────────────
 require_once get_template_directory() . '/inc/cache-integration.php';
 
