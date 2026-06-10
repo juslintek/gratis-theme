@@ -134,8 +134,11 @@ add_action('wp_footer', function() {
   if (!nav) return;
   const bell = document.createElement("div");
   bell.className = "gratis-bell";
-  bell.innerHTML = `<span class="gratis-bell-icon">🔔</span>
-    <span class="gratis-bell-badge" id="gratis-bell-count"></span>
+  bell.setAttribute("role", "button");
+  bell.setAttribute("tabindex", "0");
+  bell.setAttribute("aria-label", "Notifications");
+  bell.innerHTML = `<span class="gratis-bell-icon" aria-hidden="true">🔔</span>
+    <span class="gratis-bell-badge" id="gratis-bell-count" aria-hidden="true"></span>
     <div class="gratis-bell-panel">
       <div class="gratis-bell-panel-header">Notifications</div>
       <div class="gratis-bell-list" id="gratis-bell-list">
@@ -296,8 +299,8 @@ img,video{max-width:100%;height:auto}
 .wp-block-post-content p{color:rgba(255,255,255,0.75);line-height:1.8;font-size:16px}
 .wp-block-post-content h1,.wp-block-post-content h2,.wp-block-post-content h3,
 .wp-block-post-content h4,.wp-block-post-content h5,.wp-block-post-content h6{color:#ffffff}
-.wp-block-post-content a{color:#60a5fa}
-.wp-block-post-content a:hover{color:#93c5fd}
+.wp-block-post-content a:not(.wp-block-button__link){color:#60a5fa}
+.wp-block-post-content a:not(.wp-block-button__link):hover{color:#93c5fd}
 .wp-block-post-content pre{background:#0a0c10;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px 28px;overflow-x:auto;font-size:14px;line-height:1.7;margin:24px 0;position:relative}
 .wp-block-post-content pre code{background:none;border:none;padding:0;color:#e2e8f0;font-family:Consolas,monospace}
 .wp-block-post-content code{background:#1e2433;color:#60a5fa;border:1px solid rgba(96,165,250,0.2);border-radius:5px;padding:2px 7px;font-size:0.875em;font-family:Consolas,monospace}
