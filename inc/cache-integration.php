@@ -8,7 +8,7 @@ defined('ABSPATH') || exit;
 
 add_action('after_setup_theme', function () {
     // Only integrate if cache-manager is active
-    if (!class_exists('VLT\CacheManager\Plugin')) return;
+    if (!class_exists('Gratis\Cache\Plugin')) return;
 
     // Register theme cache namespaces
     add_action('gratis_cache_register_namespaces', function (array &$ns) {
