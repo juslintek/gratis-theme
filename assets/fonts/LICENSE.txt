@@ -1,0 +1,39 @@
+Bundled fonts in this directory are licensed under the
+SIL Open Font License, Version 1.1 (OFL-1.1), which is GPL-compatible.
+
+Full license text: https://scripts.sil.org/OFL
+
+--------------------------------------------------------------------------
+Space Grotesk
+  Files:   space-grotesk-500.ttf, space-grotesk-600.ttf, space-grotesk-700.ttf
+  Copyright (c) 2020 The Space Grotesk Project Authors
+  Source:  https://github.com/floriankarsten/space-grotesk
+  License: SIL Open Font License 1.1
+
+DM Sans
+  Files:   dm-sans-400.ttf, dm-sans-500.ttf, dm-sans-600.ttf, dm-sans-700.ttf
+  Copyright (c) 2014-2021 Indian Type Foundry, Colophon Foundry, Google LLC
+  Source:  https://github.com/googlefonts/dm-fonts
+  License: SIL Open Font License 1.1
+--------------------------------------------------------------------------
+
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply to any
+document created using the fonts or their derivatives.
+
+A copy of the full license terms is available at:
+https://scripts.sil.org/OFL

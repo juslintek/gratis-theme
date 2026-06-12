@@ -67,15 +67,37 @@ Call from any JavaScript: `GRATIS.toast("Message", "success");` or `GRATIS.notif
 * 3 header variants, 2 footer variants
 * Performance: 100/100 PageSpeed, zero render-blocking resources
 
-== Resources ==
+== Copyright ==
 
-* Screenshot: Unsplash (CC0) — https://unsplash.com
-* No bundled fonts — uses system-ui stack
-* No bundled JavaScript libraries — vanilla JS only
-* No bundled CSS frameworks — theme.json only
+GRATIS WordPress Theme, Copyright (C) 2024-2026 Juslintek.
+GRATIS is distributed under the terms of the GNU GPL v2 or later.
+
+This theme bundles the following third-party resources:
+
+Space Grotesk font
+Copyright (C) 2020 The Space Grotesk Project Authors
+(https://github.com/floriankarsten/space-grotesk)
+License: SIL Open Font License, 1.1 — https://scripts.sil.org/OFL
+Files: assets/fonts/space-grotesk-500.ttf, space-grotesk-600.ttf, space-grotesk-700.ttf
+
+DM Sans font
+Copyright (C) 2014-2021 Indian Type Foundry, Colophon Foundry, and Google LLC
+(https://github.com/googlefonts/dm-fonts)
+License: SIL Open Font License, 1.1 — https://scripts.sil.org/OFL
+Files: assets/fonts/dm-sans-400.ttf, dm-sans-500.ttf, dm-sans-600.ttf, dm-sans-700.ttf
+
+Screenshot image
+Source: Unsplash — https://unsplash.com
+License: Unsplash License (CC0-equivalent, free for commercial use) — https://unsplash.com/license
+
+The SIL Open Font License (OFL 1.1) is GPL-compatible. All bundled fonts are
+self-hosted (no external font CDN requests). No JavaScript libraries or CSS
+frameworks are bundled — frontend code is vanilla JS and theme.json only.
 
 == Privacy ==
 
 GRATIS does not collect any user data. No tracking. No analytics. No external calls.
+All fonts are self-hosted locally — no requests are made to Google Fonts or any
+other third-party font CDN.
 The live search feature queries your own WordPress REST API only.
 The notification system stores a single localStorage key (`gratis_welcomed`) to prevent repeat welcome toasts.
