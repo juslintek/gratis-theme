@@ -1,0 +1,43 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","className":"gratis-docs-page","style":{"color":{"background":"#0d0f12","text":"#e2e8f0"},"spacing":{"padding":{"top":"2rem","bottom":"4rem"}}},"layout":{"type":"constrained","contentSize":"1400px"}} -->
+<main class="wp-block-group gratis-docs-page" style="background:#0d0f12;color:#e2e8f0;padding-top:2rem;padding-bottom:4rem">
+<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"2rem"}}},"className":"gratis-docs-columns"} -->
+<div class="wp-block-columns gratis-docs-columns">
+<!-- wp:column {"width":"240px","className":"gratis-docs-sidebar-col"} -->
+<div class="wp-block-column gratis-docs-sidebar-col" style="flex-basis:240px">
+<!-- wp:heading {"level":6,"style":{"typography":{"fontSize":"11px","fontWeight":"600","letterSpacing":"0.05em","textTransform":"uppercase"},"color":{"text":"#94a3b8"},"spacing":{"margin":{"bottom":"0.75rem"}}}} -->
+<h6 class="wp-block-heading" style="color:#94a3b8;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.75rem">Documentation</h6>
+<!-- /wp:heading -->
+<!-- wp:shortcode -->
+[gratis_docs_nav]
+<!-- /wp:shortcode -->
+</div>
+<!-- /wp:column -->
+<!-- wp:column {"className":"gratis-docs-main-col"} -->
+<div class="wp-block-column gratis-docs-main-col">
+<!-- wp:heading {"level":1,"style":{"typography":{"fontSize":"2rem","fontWeight":"700","letterSpacing":"-0.02em"},"color":{"text":"#ffffff"},"spacing":{"margin":{"bottom":"1.5rem"}}}} -->
+<h1 class="wp-block-heading" style="color:#ffffff;font-size:2rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:1.5rem">Documentation</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"color":{"text":"#94a3b8"},"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+<p style="color:#94a3b8;margin-top:0;margin-bottom:0">Welcome to the Gratis WordPress Suite documentation. Choose a topic from the sidebar or browse below.</p>
+<!-- /wp:paragraph -->
+<!-- wp:shortcode -->
+[gratis_docs_grid]
+<!-- /wp:shortcode -->
+</div>
+<!-- /wp:column -->
+<!-- wp:column {"width":"180px","className":"gratis-docs-toc-col"} -->
+<div class="wp-block-column gratis-docs-toc-col" style="flex-basis:180px">
+<!-- wp:heading {"level":6,"style":{"typography":{"fontSize":"11px","fontWeight":"600","letterSpacing":"0.05em","textTransform":"uppercase"},"color":{"text":"#94a3b8"},"spacing":{"margin":{"bottom":"0.75rem"}}}} -->
+<h6 class="wp-block-heading" style="color:#94a3b8;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.75rem">On this page</h6>
+<!-- /wp:heading -->
+<!-- wp:html -->
+<nav class="gratis-docs-toc" id="doc-toc"></nav>
+<!-- /wp:html -->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
