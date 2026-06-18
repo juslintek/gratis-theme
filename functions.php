@@ -21,6 +21,15 @@ add_action('wp_head', function () {
     $icon = get_template_directory_uri() . '/assets/favicon.svg';
     echo '<link rel="icon" href="' . esc_url($icon) . '" type="image/svg+xml">' . "\n";
 
+    // Defer Open Graph / Twitter Card output to the Gratis SEO plugin when it is
+    // active, so the document never emits duplicate og:/twitter: tags. The
+    // `gratis_theme_emit_meta` filter overrides this (default: emit only when
+    // Gratis SEO is absent).
+    $emit_meta = ! class_exists('\Gratis\SEO\MetaTags');
+    if (! apply_filters('gratis_theme_emit_meta', $emit_meta)) {
+        return;
+    }
+
     // Open Graph
     $title = wp_get_document_title();
     $desc = get_bloginfo('description');
