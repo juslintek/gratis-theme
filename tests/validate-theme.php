@@ -26,10 +26,11 @@ $checks   = 0;
 $failures = 0;
 
 $report = static function (string $label, bool $ok, string $detail = '') use (&$checks, &$failures): void {
-    $checks++;
+    ++$checks;
     if (!$ok) {
-        $failures++;
+        ++$failures;
     }
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- CLI script, not web output.
     printf("[%s] %s%s\n", $ok ? 'PASS' : 'FAIL', $label, $detail !== '' ? " — {$detail}" : '');
 };
 
@@ -57,6 +58,7 @@ $report('found PHP files to lint', $phpFiles !== [], count($phpFiles) . ' file(s
 foreach ($phpFiles as $file) {
     $output = [];
     $code   = 0;
+    // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.system_calls_exec -- CLI lint tool.
     exec(escapeshellarg($php) . ' -l ' . escapeshellarg($file) . ' 2>&1', $output, $code);
     $rel = ltrim(str_replace($themeRoot, '', $file), '/');
     $report("lint {$rel}", $code === 0, $code === 0 ? '' : trim(implode(' ', $output)));
@@ -70,7 +72,7 @@ if (!is_file($themeJsonPath)) {
 } else {
     $report('theme.json exists', true);
 
-    $data = json_decode((string) file_get_contents($themeJsonPath), true);
+    $data = json_decode((string) file_get_contents($themeJsonPath), true); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- local file.
 
     if (!is_array($data)) {
         $report('theme.json parses as JSON', false, 'json_decode failed: ' . json_last_error_msg());
@@ -84,10 +86,12 @@ if (!is_file($themeJsonPath)) {
 }
 
 // --- Summary ----------------------------------------------------------------
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- CLI script.
 echo str_repeat('-', 60), "\n";
 if ($failures === 0) {
-    printf("SUMMARY: PASS — %d checks, 0 failures\n", $checks);
+    printf("SUMMARY: PASS — %d checks, 0 failures\n", $checks); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     exit(0);
 }
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- CLI script.
 printf("SUMMARY: FAIL — %d checks, %d failure(s)\n", $checks, $failures);
 exit(1);

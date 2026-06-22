@@ -10,7 +10,7 @@ add_action('after_setup_theme', function () {
     add_theme_support('responsive-embeds');
     add_theme_support('html5', ['comment-list','comment-form','search-form','gallery','caption','style','script']);
     add_theme_support('post-thumbnails');
-    add_image_size('gratis-card',    640, 360, true);
+    add_image_size('gratis-card', 640, 360, true);
     add_image_size('gratis-card-2x', 1280, 720, true);
     add_theme_support('title-tag');
     load_theme_textdomain('gratis', get_template_directory() . '/languages');
@@ -36,7 +36,7 @@ add_action('wp_head', function () {
     $url = is_singular() ? get_permalink() : home_url('/');
     if (is_singular()) {
         $post = get_post();
-        $desc = $post->post_excerpt ?: wp_trim_words(strip_tags($post->post_content), 30);
+        $desc = $post->post_excerpt ?: wp_trim_words(wp_strip_all_tags($post->post_content), 30);
     }
     echo '<meta property="og:type" content="website">' . "\n";
     echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
@@ -54,8 +54,8 @@ require_once get_template_directory() . '/inc/cache-integration.php';
 
 
 // Fix Lithuanian quote conversion via output buffer (locale-safe)
-add_action('template_redirect', function() {
-    ob_start(function($html) {
+add_action('template_redirect', function () {
+    ob_start(function ($html) {
         return str_replace(
             ["\xe2\x80\x9e", '&#8222;', '&bdquo;'],
             ["\xe2\x80\x9c", '&#8220;', '&ldquo;'],
@@ -65,7 +65,7 @@ add_action('template_redirect', function() {
 });
 
 // ── WooCommerce cleanup ───────────────────────────────────────────────────
-add_action('init', function() {
+add_action('init', function () {
     // Remove WooCommerce noindex — it noindexes shop/cart/checkout pages
     // but also incorrectly noindexes the homepage in some configs
     remove_filter('wp_robots', 'wc_page_no_robots');
@@ -79,7 +79,7 @@ add_action('init', function() {
 
 
 // Force remove noindex added by WooCommerce wc_page_no_robots
-add_filter('wp_robots', function($robots) {
+add_filter('wp_robots', function ($robots) {
     if (is_front_page() || is_home()) {
         unset($robots['noindex']);
         unset($robots['nofollow']);
@@ -92,7 +92,7 @@ add_filter('wp_robots', function($robots) {
 
 // ── SEO fixes ─────────────────────────────────────────────────────────────
 // Remove noindex — WP adds it when blog_public=0, force it off
-add_filter('wp_robots', function($robots) {
+add_filter('wp_robots', function ($robots) {
     unset($robots['noindex']);
     unset($robots['nofollow']);
     $robots['index']  = true;
@@ -101,7 +101,7 @@ add_filter('wp_robots', function($robots) {
 }, 99);
 
 // Add meta description
-add_action('wp_head', function() {
+add_action('wp_head', function () {
     if (is_front_page()) {
         echo '<meta name="description" content="GRATIS — the free premium WordPress theme. 20+ patterns, WooCommerce ready, 100/100 PageSpeed. Zero upsells. MIT licensed. Forever free.">' . PHP_EOL;
     } elseif (is_singular()) {
@@ -111,19 +111,19 @@ add_action('wp_head', function() {
 }, 2);
 
 // Fix H1 in site-title — demote to span when on front page (hero has the real H1)
-add_filter('the_title', function($title) {
+add_filter('the_title', function ($title) {
     return $title;
 });
 
 // Cache headers for static assets
-add_action('send_headers', function() {
+add_action('send_headers', function () {
     if (!is_admin()) {
         header('Vary: Accept-Encoding');
     }
 });
 
 // ── Enqueue search + notifications ───────────────────────────────────────
-add_action('wp_enqueue_scripts', function() {
+add_action('wp_enqueue_scripts', function () {
     $v = '1.0.2';
     wp_enqueue_style('gratis-components', get_template_directory_uri() . '/assets/css/components.css', [], $v);
     wp_enqueue_script('gratis-search', get_template_directory_uri() . '/assets/js/search.js', [], $v, true);
@@ -135,7 +135,7 @@ add_action('wp_enqueue_scripts', function() {
 });
 
 // ── Add bell + search to header via wp_body_open ──────────────────────────
-add_action('wp_footer', function() {
+add_action('wp_footer', function () {
     // Bell HTML injected into header via JS
     echo '<script>
 (function(){
@@ -171,10 +171,10 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 // Remove emoji — saves ~15KB JS + DNS lookup
-remove_action('wp_head',             'print_emoji_detection_script', 7);
-remove_action('wp_print_styles',     'print_emoji_styles');
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
-remove_action('admin_print_styles',  'print_emoji_styles');
+remove_action('admin_print_styles', 'print_emoji_styles');
 
 // Remove oEmbed/REST discovery from <head> — reduces TTFB
 remove_action('wp_head', 'wp_oembed_add_discovery_links');
@@ -478,7 +478,7 @@ header.wp-block-template-part{display:contents}
 add_filter('should_load_remote_block_patterns', '__return_false');
 
 // Output gap fix AFTER WP global styles (priority 999)
-add_action('wp_head', function() {
+add_action('wp_head', function () {
     echo '<style id="gratis-gap-fix">
 html{background:#0d0f12!important}
 body{background:#0d0f12!important}

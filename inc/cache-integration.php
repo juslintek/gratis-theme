@@ -29,7 +29,7 @@ add_action('after_setup_theme', function () {
             'patterns'        => count(glob($themeDir . '/patterns/*.php')),
             'templates'       => count(glob($themeDir . '/templates/*.html')),
             'parts'           => count(glob($themeDir . '/parts/*.html')),
-            'last_modified'   => date('c', max(array_map('filemtime', array_merge(
+            'last_modified'   => gmdate('c', max(array_map('filemtime', array_merge(
                 glob($themeDir . '/*.php') ?: [],
                 glob($themeDir . '/*.json') ?: [],
                 glob($themeDir . '/*.css') ?: []
