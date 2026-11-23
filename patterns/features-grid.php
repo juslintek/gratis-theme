@@ -32,8 +32,8 @@
 <!-- wp:group {"className":"is-style-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|8","bottom":"var:preset|spacing|8","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group is-style-card">
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} --><p>🎨</p><!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xl","fontWeight":"700"}}} --><h3>20+ patterns</h3><!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|sm"}}} --><p>Heroes, sections, cards, pricing, testimonials, forms — all included. One click to insert.</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xl","fontWeight":"700"}}} --><h3>22 patterns</h3><!-- /wp:heading -->
+<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|sm"}}} --><p>Heroes, sections, cards, testimonials, FAQs, and forms — all included. One click to insert.</p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 </div>
@@ -44,7 +44,7 @@
 <div class="wp-block-group is-style-card">
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} --><p>🔓</p><!-- /wp:paragraph -->
 <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xl","fontWeight":"700"}}} --><h3>Zero upsells</h3><!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|sm"}}} --><p>No "Pro" tier. No locked features. No license keys. MIT licensed — fork it, sell it, do anything.</p><!-- /wp:paragraph -->
+<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|sm"}}} --><p>No "Pro" tier. No locked features. No license keys. GPL-2.0-or-later licensed — free for unlimited personal and client sites.</p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 </div>

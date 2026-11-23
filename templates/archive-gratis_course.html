@@ -1,0 +1,97 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
+<main class="wp-block-group alignfull" style="padding-top:0;padding-bottom:0">
+
+<!-- wp:group {"className":"demo-hero","layout":{"type":"constrained","contentSize":"800px"}} -->
+<div class="wp-block-group demo-hero">
+
+<!-- wp:paragraph {"className":"demo-badge","align":"center"} -->
+<p class="demo-badge has-text-align-center">🎓 Live Demos</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"textAlign":"center","level":1} -->
+<h1 class="wp-block-heading has-text-align-center">Courses</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"demo-subtitle","align":"center"} -->
+<p class="demo-subtitle has-text-align-center">A lightweight LMS with structured courses, lessons, quizzes, and progress tracking — powered by <code>gratis-learn</code>.</p>
+<!-- /wp:paragraph -->
+
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"demo-section","layout":{"type":"constrained","contentSize":"1200px"}} -->
+<div class="wp-block-group demo-section">
+
+<!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"gratis_course","order":"desc","orderBy":"date","inherit":false},"className":"demo-features"} -->
+<div class="wp-block-query demo-features">
+<!-- wp:post-template -->
+
+<!-- wp:group {"className":"demo-feature-card","style":{"spacing":{"blockGap":"0.5rem"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group demo-feature-card">
+
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"#a5b4fc"}}} -->
+<p style="color:#a5b4fc;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">🎓 Course</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:post-title {"level":3,"isLink":true,"style":{"elements":{"link":{"color":{"text":"#ffffff"}}}}} /-->
+
+<!-- wp:post-excerpt {"excerptLength":22} /-->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0.5rem"}}}} -->
+<p style="margin-top:0.5rem"><a href="#" data-wp-on--click="core/query::actions.navigate">View course →</a></p>
+<!-- /wp:paragraph -->
+
+</div>
+<!-- /wp:group -->
+
+<!-- /wp:post-template -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">No courses published yet — check back soon.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+
+<!-- wp:query-pagination -->
+<!-- wp:query-pagination-previous /-->
+<!-- wp:query-pagination-numbers /-->
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+</div>
+<!-- /wp:query -->
+
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"demo-section","style":{"color":{"background":"#0f172a"}},"layout":{"type":"constrained","contentSize":"700px"}} -->
+<div class="wp-block-group demo-section has-background" style="background-color:#0f172a">
+
+<!-- wp:group {"className":"demo-section-header"} -->
+<div class="wp-block-group demo-section-header">
+<!-- wp:heading {"textAlign":"center","level":2} -->
+<h2 class="wp-block-heading has-text-align-center">Want to see it in action?</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Explore the full Gratis demo suite, including course outlines and progress tracking.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"is-style-fill"} -->
+<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="/demo/">Explore the Demo Suite →</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+
+</div>
+<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

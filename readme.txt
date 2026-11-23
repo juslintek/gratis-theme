@@ -11,10 +11,10 @@ Everything premium themes charge for. Forever free.
 
 == Description ==
 
-GRATIS is a performance-first Full Site Editing (FSE) WordPress block theme. Zero upsells. Zero locked features. 20+ block patterns. MIT licensed. Better performance than anything on ThemeForest.
+GRATIS is a performance-first Full Site Editing (FSE) WordPress block theme. Zero upsells. Zero locked features. 22 block patterns. GPL-2.0-or-later licensed. Built for speed, accessibility, and Full Site Editing.
 
 **Features:**
-* 21 ready-to-use block patterns across 12 categories
+* 22 ready-to-use block patterns across 12 categories
 * Full Site Editing — edit header, footer, and every template visually
 * WooCommerce ready — shop, product, cart, and checkout templates included
 * Live search — instant REST API powered search, zero dependencies
@@ -58,7 +58,7 @@ Call from any JavaScript: `GRATIS.toast("Message", "success");` or `GRATIS.notif
 
 = 1.0.0 =
 * Initial release
-* 21 block patterns across 12 categories
+* 22 block patterns across 12 categories
 * WooCommerce templates (shop, product, cart, checkout)
 * Live search with REST API
 * Async notifications (toast + bell panel)

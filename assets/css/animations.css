@@ -1,0 +1,27 @@
+/* ── Scroll-reveal animations (IntersectionObserver-driven, JS-class-toggled) ── */
+/* @supports guard: only applied when browser can handle animation-timeline:view()
+   OR when classes are toggled by animations.js (both paths use the same rules).   */
+.gratis-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.gratis-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger children inside a revealed group */
+.gratis-visible > .wp-block-column:nth-child(1) { transition-delay: 0s; }
+.gratis-visible > .wp-block-column:nth-child(2) { transition-delay: 0.08s; }
+.gratis-visible > .wp-block-column:nth-child(3) { transition-delay: 0.16s; }
+.gratis-visible > .wp-block-column:nth-child(4) { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gratis-animate,
+  .gratis-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

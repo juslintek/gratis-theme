@@ -21,6 +21,38 @@
 <!-- wp:paragraph {"style":{"color":{"text":"#94a3b8"},"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
 <p style="color:#94a3b8;margin-top:0;margin-bottom:0">Welcome to the Gratis WordPress Suite documentation. Choose a topic from the sidebar or browse below.</p>
 <!-- /wp:paragraph -->
+<!-- wp:html -->
+<div class="gratis-docs-search-bar" style="margin:1.25rem 0 1.5rem">
+  <input type="search" id="gratis-docs-filter" placeholder="Filter plugins… (e.g. cache, backup, SEO)" autocomplete="off"
+    style="width:100%;padding:0.6rem 1rem;border-radius:8px;border:1px solid rgba(255,255,255,0.12);background:#161a20;color:#e2e8f0;font-size:14px;outline:none"
+    aria-label="Filter documentation cards">
+  <p id="gratis-docs-filter-count" style="font-size:13px;color:rgba(255,255,255,0.3);margin:0.5rem 0 0;min-height:1.2em"></p>
+</div>
+<script>
+(function(){
+  function initDocsFilter(){
+    var input = document.getElementById('gratis-docs-filter');
+    var counter = document.getElementById('gratis-docs-filter-count');
+    if (!input) return;
+    input.addEventListener('input', function(){
+      var q = this.value.toLowerCase().trim();
+      var cards = document.querySelectorAll('.gratis-docs-grid .gratis-doc-card');
+      if (!cards.length) return;
+      var shown = 0;
+      cards.forEach(function(card){
+        var text = card.textContent.toLowerCase();
+        var visible = !q || text.indexOf(q) !== -1;
+        card.style.display = visible ? '' : 'none';
+        if (visible) shown++;
+      });
+      counter.textContent = q ? shown + ' of ' + cards.length + ' plugins match' : '';
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initDocsFilter);
+  else initDocsFilter();
+})();
+</script>
+<!-- /wp:html -->
 <!-- wp:shortcode -->
 [gratis_docs_grid]
 <!-- /wp:shortcode -->
