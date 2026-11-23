@@ -24,7 +24,7 @@
 <!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|sm"}}} --><p>For personal projects and small sites.</p><!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|4xl","fontWeight":"800","lineHeight":"1"},"spacing":{"margin":{"top":"var:preset|spacing|4"}}}} --><p>$0<span style="font-size:var(--wp--preset--font-size--md);font-weight:400;color:var(--wp--preset--color--contrast-3)">/mo</span></p><!-- /wp:paragraph -->
 <!-- wp:list {"className":"is-style-check","style":{"spacing":{"margin":{"top":"var:preset|spacing|6"}},"typography":{"fontSize":"var:preset|font-size|sm"}}} -->
-<ul class="is-style-check"><li>1 website</li><li>All patterns included</li><li>MIT license</li></ul>
+<ul class="is-style-check"><li>1 website</li><li>All patterns included</li><li>GPL-2.0-or-later license</li></ul>
 <!-- /wp:list -->
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|6"}}}} -->
 <div class="wp-block-buttons">

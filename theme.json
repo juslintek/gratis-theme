@@ -418,8 +418,8 @@
       "padding": {
         "top": "var(--wp--preset--spacing--16)",
         "bottom": "var(--wp--preset--spacing--16)",
-        "left": "var(--wp--preset--spacing--30)",
-        "right": "var(--wp--preset--spacing--30)"
+        "left": "var(--wp--preset--spacing--6)",
+        "right": "var(--wp--preset--spacing--6)"
       }
     },
     "elements": {
@@ -564,11 +564,14 @@
           "fontSize": "var(--wp--preset--font-size--sm)"
         },
         "color": {
-          "background": "var(--wp--preset--color--base-3)",
+          "background": "#0d1117",
           "text": "var(--wp--preset--color--contrast)"
         },
         "border": {
-          "radius": "var(--wp--custom--radius--sm)"
+          "color": "var(--wp--preset--color--border)",
+          "style": "solid",
+          "width": "1px",
+          "radius": "var(--wp--custom--radius--md)"
         },
         "spacing": {
           "padding": {
@@ -676,13 +679,6 @@
     {
       "name": "landing",
       "title": "Landing Page",
-      "postTypes": [
-        "page"
-      ]
-    },
-    {
-      "name": "docs",
-      "title": "Documentation",
       "postTypes": [
         "page"
       ]

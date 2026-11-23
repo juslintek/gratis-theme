@@ -1,7 +1,38 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 <!-- wp:group {"tagName":"main","id":"main-content","style":{"color":{"background":"#0d0f12","text":"#ffffff"},"spacing":{"padding":{"top":"var:preset|spacing|12","bottom":"var:preset|spacing|20"}}},"layout":{"type":"constrained"}} -->
 <main class="wp-block-group" id="main-content" style="background:#0d0f12;color:#ffffff;padding-top:var(--wp--preset--spacing--12);padding-bottom:var(--wp--preset--spacing--20)">
-<!-- wp:query {"query":{"perPage":12,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"blog-hero","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|10"}}},"layout":{"type":"constrained","contentSize":"860px"}} -->
+<div class="wp-block-group blog-hero">
+<!-- wp:heading {"level":1,"textAlign":"center","style":{"typography":{"fontSize":"var:preset|font-size|3xl","fontWeight":"800"},"color":{"text":"#ffffff"}}} --><h1 class="has-text-align-center wp-block-heading" style="color:#ffffff">From the team</h1><!-- /wp:heading -->
+<!-- wp:paragraph {"align":"center","style":{"color":{"text":"rgba(255,255,255,0.6)"},"typography":{"fontSize":"var:preset|font-size|md"}}} --><p class="has-text-align-center" style="color:rgba(255,255,255,0.6)">Tips, tutorials, and updates from the Gratis project.</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:query {"query":{"perPage":1,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"blog-featured-query","layout":{"type":"default"}} -->
+<div class="wp-block-query blog-featured-query">
+<!-- wp:post-template {"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"blog-featured-card","style":{"border":{"radius":"20px","width":"1px","color":"rgba(255,255,255,0.10)"},"color":{"background":"#161a20"},"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"bottom":"var:preset|spacing|10"}}},"layout":{"type":"grid","minimumColumnWidth":"300px"}} -->
+<div class="wp-block-group blog-featured-card" style="border-radius:20px;border:1px solid rgba(255,255,255,0.10);background:#161a20;overflow:hidden;margin-bottom:var(--wp--preset--spacing--10)">
+<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"21/9","width":"","height":"","scale":"cover","sizeSlug":"large","style":{"border":{"radius":"0"}}} /-->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|8","left":"var:preset|spacing|8","right":"var:preset|spacing|8","bottom":"var:preset|spacing|8"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group" style="padding:var(--wp--preset--spacing--8)">
+<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|3","margin":{"bottom":"var:preset|spacing|2"}}}} -->
+<div class="wp-block-group">
+<!-- wp:paragraph {"style":{"typography":{"fontSize":"11px","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.1em"},"color":{"text":"#a78bfa"}}} --><p style="color:#a78bfa;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Latest</p><!-- /wp:paragraph -->
+<!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"11px","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.08em"},"color":{"text":"#60a5fa"}}} /-->
+<!-- wp:post-date {"style":{"typography":{"fontSize":"12px"},"color":{"text":"rgba(255,255,255,0.4)"}}} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:post-title {"isLink":true,"style":{"typography":{"fontSize":"clamp(1.25rem,2.5vw,2rem)","fontWeight":"800","lineHeight":"1.2"},"color":{"text":"#ffffff"}}} /-->
+<!-- wp:post-excerpt {"numberOfWords":30,"style":{"typography":{"fontSize":"16px","lineHeight":"1.7"},"color":{"text":"rgba(255,255,255,0.6)"}}} /-->
+<!-- wp:read-more {"content":"Read article →","style":{"typography":{"fontSize":"14px","fontWeight":"600"},"color":{"text":"#60a5fa"}}} /-->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+</div>
+<!-- /wp:query -->
+<!-- wp:query {"query":{"perPage":12,"offset":1,"postType":"post","order":"desc","orderBy":"date","inherit":false},"layout":{"type":"default"}} -->
 <div class="wp-block-query">
 <!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
 <!-- wp:group {"style":{"border":{"radius":"16px","width":"1px","color":"rgba(255,255,255,0.08)"},"color":{"background":"#161a20"},"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|5","left":"0","right":"0"}}},"layout":{"type":"flex","orientation":"vertical"}} -->

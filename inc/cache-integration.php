@@ -1,13 +1,13 @@
 <?php
 /**
- * GRATIS Theme — Cache Manager Integration
+ * GRATIS Theme — Gratis Cache Integration
  * Emits events when theme files change, registers cache namespaces.
  */
 
 defined('ABSPATH') || exit;
 
 add_action('after_setup_theme', function () {
-    // Only integrate if cache-manager is active
+    // Only integrate if gratis-cache is active
     if (!class_exists('Gratis\Cache\Plugin')) return;
 
     // Register theme cache namespaces

@@ -32,23 +32,35 @@ add_action('wp_head', function () {
 
     // Open Graph
     $title = wp_get_document_title();
-    $desc = get_bloginfo('description');
-    $url = is_singular() ? get_permalink() : home_url('/');
+    $desc  = (string) get_bloginfo('description');
+    $url   = is_singular() ? (string) get_permalink() : home_url('/');
     if (is_singular()) {
         $post = get_post();
-        $desc = $post->post_excerpt ?: wp_trim_words(wp_strip_all_tags($post->post_content), 30);
+        if ($post instanceof WP_Post) {
+            $excerpt = trim((string) $post->post_excerpt);
+            $trimmed = wp_trim_words(wp_strip_all_tags((string) $post->post_content), 30);
+            $desc    = '' !== $excerpt ? wp_strip_all_tags($excerpt) : ('' !== trim($trimmed) ? $trimmed : $desc);
+        }
+    }
+    $site_name = (string) get_bloginfo('name');
+    if ('' === $site_name) {
+        $site_name = 'GRATIS';
     }
     echo '<meta property="og:type" content="website">' . "\n";
     echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
-    echo '<meta property="og:description" content="' . esc_attr($desc) . '">' . "\n";
+    if ('' !== $desc) {
+        echo '<meta property="og:description" content="' . esc_attr($desc) . '">' . "\n";
+    }
     echo '<meta property="og:url" content="' . esc_url($url) . '">' . "\n";
-    echo '<meta property="og:site_name" content="GRATIS">' . "\n";
+    echo '<meta property="og:site_name" content="' . esc_attr($site_name) . '">' . "\n";
     echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
     echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
-    echo '<meta name="twitter:description" content="' . esc_attr($desc) . '">' . "\n";
+    if ('' !== $desc) {
+        echo '<meta name="twitter:description" content="' . esc_attr($desc) . '">' . "\n";
+    }
 }, 1);
 
-// ── Cache Manager Integration ─────────────────────────────────────────────────
+// ── Gratis Cache Integration ──────────────────────────────────────────────────
 require_once get_template_directory() . '/inc/cache-integration.php';
 
 
@@ -66,9 +78,6 @@ add_action('template_redirect', function () {
 
 // ── WooCommerce cleanup ───────────────────────────────────────────────────
 add_action('init', function () {
-    // Remove WooCommerce noindex — it noindexes shop/cart/checkout pages
-    // but also incorrectly noindexes the homepage in some configs
-    remove_filter('wp_robots', 'wc_page_no_robots');
     // Remove WC breadcrumbs from injecting above content
     remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
     remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
@@ -77,36 +86,54 @@ add_action('init', function () {
     add_filter('woocommerce_show_page_title', '__return_false');
 });
 
-
-// Force remove noindex added by WooCommerce wc_page_no_robots
+// ── SEO fixes ─────────────────────────────────────────────────────────────
+// Guard front page against accidental WooCommerce noindex while respecting
+// Settings -> Reading (blog_public), Gratis SEO per-post noindex/nofollow, and
+// WooCommerce cart/checkout/account/endpoint pages.
 add_filter('wp_robots', function ($robots) {
-    if (is_front_page() || is_home()) {
-        unset($robots['noindex']);
-        unset($robots['nofollow']);
-        $robots['index']  = true;
-        $robots['follow'] = true;
+    if (! is_front_page() && ! is_home()) {
+        return $robots;
     }
+    if (! function_exists('wc_page_no_robots') || empty($robots['noindex'])) {
+        return $robots;
+    }
+    if ('0' === (string) get_option('blog_public', '1')) {
+        return $robots;
+    }
+    if (
+        (function_exists('is_cart') && is_cart())
+        || (function_exists('is_checkout') && is_checkout())
+        || (function_exists('is_account_page') && is_account_page())
+        || (function_exists('is_wc_endpoint_url') && is_wc_endpoint_url())
+    ) {
+        return $robots;
+    }
+    $post_id = (int) get_queried_object_id();
+    if ($post_id > 0 && (get_post_meta($post_id, '_gratis_seo_noindex', true) || get_post_meta($post_id, '_gratis_seo_nofollow', true))) {
+        return $robots;
+    }
+    unset($robots['noindex']);
     return $robots;
 }, 999);
 
-
-// ── SEO fixes ─────────────────────────────────────────────────────────────
-// Remove noindex — WP adds it when blog_public=0, force it off
-add_filter('wp_robots', function ($robots) {
-    unset($robots['noindex']);
-    unset($robots['nofollow']);
-    $robots['index']  = true;
-    $robots['follow'] = true;
-    return $robots;
-}, 99);
-
-// Add meta description
+// Add meta description fallback only when Gratis SEO is not active.
 add_action('wp_head', function () {
-    if (is_front_page()) {
-        echo '<meta name="description" content="GRATIS — the free premium WordPress theme. 20+ patterns, WooCommerce ready, 100/100 PageSpeed. Zero upsells. MIT licensed. Forever free.">' . PHP_EOL;
-    } elseif (is_singular()) {
-        $desc = get_the_excerpt() ?: get_bloginfo('description');
-        echo '<meta name="description" content="' . esc_attr(wp_strip_all_tags($desc)) . '">' . PHP_EOL;
+    $emit_meta = ! class_exists('\Gratis\SEO\MetaTags');
+    if (! apply_filters('gratis_theme_emit_meta', $emit_meta)) {
+        return;
+    }
+    if (is_front_page() || is_singular()) {
+        $post_id = (int) get_queried_object_id();
+        $desc    = $post_id ? (string) get_post_meta($post_id, '_gratis_seo_desc', true) : '';
+        if ('' === $desc && is_front_page()) {
+            $desc = (string) get_bloginfo('description');
+        } elseif ('' === $desc) {
+            $desc = (string) (get_the_excerpt() ?: get_bloginfo('description'));
+        }
+        $clean = trim(wp_strip_all_tags($desc));
+        if ('' !== $clean) {
+            echo '<meta name="description" content="' . esc_attr($clean) . '">' . PHP_EOL;
+        }
     }
 }, 2);
 
@@ -122,12 +149,14 @@ add_action('send_headers', function () {
     }
 });
 
-// ── Enqueue search + notifications ───────────────────────────────────────
+// ── Enqueue search + notifications + animations ───────────────────────────
 add_action('wp_enqueue_scripts', function () {
     $v = '1.0.2';
     wp_enqueue_style('gratis-components', get_template_directory_uri() . '/assets/css/components.css', [], $v);
+    wp_enqueue_style('gratis-animations', get_template_directory_uri() . '/assets/css/animations.css', [], '1.0.0');
     wp_enqueue_script('gratis-search', get_template_directory_uri() . '/assets/js/search.js', [], $v, true);
     wp_enqueue_script('gratis-notifications', get_template_directory_uri() . '/assets/js/notifications.js', [], $v, true);
+    wp_enqueue_script('gratis-animations', get_template_directory_uri() . '/assets/js/animations.js', [], '1.0.0', true);
     wp_localize_script('gratis-search', 'gratisSearch', [
         'restUrl' => rest_url('wp/v2/'),
         'nonce'   => wp_create_nonce('wp_rest'),
@@ -298,6 +327,7 @@ add_action('wp_head', function () {
     // Minimal above-fold CSS — layout stability, no FOUC
     echo '<style id="gratis-critical">
 :root{--gratis-header-h:64px}
+[id]{scroll-margin-top:80px}
 *,::before,::after{box-sizing:border-box}
 body{margin:0;-webkit-font-smoothing:antialiased}
 img,video{max-width:100%;height:auto}
@@ -465,7 +495,6 @@ header.wp-block-template-part{display:contents}
   #gratis-toasts{max-width:calc(100vw - 32px)!important;left:16px!important}
 }
 @media(max-width:480px){
-  .gratis-header .wp-block-navigation{display:none!important}
   .gratis-header .wp-block-site-title{font-size:18px!important}
   [style*="grid-template-columns:repeat(2,1fr)"]{grid-template-columns:1fr!important}
   [style*="font-size:clamp(3rem"]{font-size:2rem!important}
@@ -492,3 +521,79 @@ body{background:#0d0f12!important}
 :where(.wp-site-blocks)>:first-child{margin-block-start:0!important}
 </style>';
 }, 999);
+
+// ── Demo page showcase styles ─────────────────────────────────────────────────
+add_action('wp_enqueue_scripts', function () {
+    $load = false;
+    if (is_page()) {
+        // Load on demo child pages (parent ID 224) or the demo parent itself.
+        $post = get_queried_object();
+        $load = $post && ($post->post_parent === 224 || $post->ID === 224);
+    } elseif (is_post_type_archive(['gratis_event', 'gratis_course']) || is_singular(['gratis_event', 'gratis_course'])) {
+        // Also load on the Events/Courses archives and single views so their
+        // card-grid templates can reuse the same .demo-* styling.
+        $load = true;
+    }
+    if ($load) {
+        wp_enqueue_style('gratis-demo-showcase', get_template_directory_uri() . '/assets/css/demo-showcase.css', ['gratis-components'], '1.0.0');
+    }
+});
+
+// ── Task A: Blog post count in subtitle (P2-01) ───────────────────────────────
+// Injects " — N articles" into the .blog-hero subtitle on home/archive pages.
+add_action('wp_footer', function () {
+    if (!is_home() && !is_archive()) {
+        return;
+    }
+    $count = absint(wp_count_posts()->publish);
+    echo '<script>(function(){var el=document.querySelector(".blog-hero p");if(el)el.textContent+=" \u2014 ' . absint($count) . ' articles";})()</script>' . "\n";
+});
+
+// ── Task D: Blog reading-time estimate (P2-05) ────────────────────────────────
+// Uses render_block filter to append "N min read" after core/post-excerpt on archives.
+add_filter('render_block', function ($html, $block) {
+    if ('core/post-excerpt' !== $block['blockName']) {
+        return $html;
+    }
+    // Only on blog/archive pages, not single posts
+    if (!is_home() && !is_archive() && !is_category() && !is_tag()) {
+        return $html;
+    }
+    global $post;
+    if (!$post) {
+        return $html;
+    }
+    $words   = str_word_count(wp_strip_all_tags($post->post_content));
+    $minutes = max(1, (int) round($words / 200));
+    $rt_html = '<p class="reading-time" aria-label="' . esc_attr($minutes . ' minute read') . '" style="font-size:12px;color:rgba(255,255,255,0.45);margin:4px 0 0">'
+        . '<span aria-hidden="true">⏱ </span>'
+        . esc_html($minutes . ' min read')
+        . '</p>';
+    return $html . $rt_html;
+}, 10, 2);
+
+// ── Task B: Events archive — show _start_date meta on cards (P2-03) ──────────
+// Replaces the generic post-date with the event's _start_date meta on event archives.
+add_filter('render_block', function ($html, $block) {
+    if ('core/post-date' !== $block['blockName']) {
+        return $html;
+    }
+    if (!is_post_type_archive('gratis_event') && !is_singular('gratis_event')) {
+        return $html;
+    }
+    global $post;
+    if (!$post) {
+        return $html;
+    }
+    $start = get_post_meta($post->ID, '_start_date', true);
+    if (!$start) {
+        return $html; // fall back to post_date if no meta
+    }
+    $ts      = strtotime($start);
+    $display = $ts ? date_i18n(get_option('date_format'), $ts) : esc_html($start);
+    $iso     = $ts ? gmdate('c', $ts) : '';
+    return '<div class="wp-block-post-date event-start-date" style="font-size:0.85rem;color:#94a3b8">'
+        . '<time' . ($iso ? ' datetime="' . esc_attr($iso) . '"' : '') . '>'
+        . '📅 ' . esc_html($display)
+        . '</time></div>';
+}, 10, 2);

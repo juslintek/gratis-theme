@@ -13,9 +13,9 @@
 <div class="wp-block-group">
 <?php
 foreach([
-  ['01', 'Download the theme', 'Get GRATIS from GitHub. Zero account required. MIT licensed.'],
+  ['01', 'Download the theme', 'Get GRATIS from GitHub. Zero account required. GPL-2.0-or-later licensed.'],
   ['02', 'Install on WordPress', 'Upload via Appearance → Themes or WP-CLI. Activates in seconds.'],
-  ['03', 'Pick a pattern', 'Open the block editor, click +, browse 20+ patterns. One click to insert.'],
+  ['03', 'Pick a pattern', 'Open the block editor, click +, browse 22 patterns. One click to insert.'],
   ['04', 'Customize & publish', 'Change colors, fonts, and content in the visual editor. What you see is what visitors get.'],
 ] as [$num, $step_title, $desc]):
 ?>

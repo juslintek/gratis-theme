@@ -1,0 +1,557 @@
+/**
+ * Gratis Demo Showcase — demo page styles
+ * Dark theme: light text, accent gradients, glass-morphism cards
+ */
+
+/* === Hero Sections === */
+.demo-hero {
+  position: relative;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.demo-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(236, 72, 153, 0.08) 100%);
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.demo-hero::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+  animation: hero-float 20s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, -1%) rotate(1deg); }
+  66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
+}
+
+.demo-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.demo-hero .demo-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  margin-bottom: 1.5rem;
+}
+
+.demo-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 50%, #c7d2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem !important;
+}
+
+.demo-hero .demo-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* === Feature Grid === */
+.demo-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+}
+
+.demo-feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.demo-feature-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+}
+
+.demo-feature-card .feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.demo-feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.demo-feature-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* === Section Dividers === */
+.demo-section {
+  margin-bottom: 4rem;
+}
+
+.demo-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.demo-section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.demo-section-header p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+}
+
+/* === Shortcode Showcase Containers === */
+.demo-showcase-block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-showcase-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  border-radius: 1rem 1rem 0 0;
+}
+
+.demo-showcase-block .showcase-label {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(99, 102, 241, 0.15);
+  border-radius: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  margin-bottom: 1.5rem;
+}
+
+/* === Stats Row === */
+.demo-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+}
+
+.demo-stat {
+  text-align: center;
+}
+
+.demo-stat .stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.demo-stat .stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.25rem;
+}
+
+/* === CTA Section === */
+.demo-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1.5rem;
+  margin-top: 4rem;
+}
+
+.demo-cta h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.demo-cta p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-cta a.demo-btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+}
+
+.demo-cta a.demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+}
+
+/* === Config Tabs (visual only) === */
+.demo-config-label {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  font-size: 0.78rem;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .demo-hero {
+    padding: 3rem 1.5rem 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .demo-features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .demo-showcase-block {
+    padding: 1.5rem;
+  }
+  
+  .demo-stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem;
+  }
+}
+
+/* === Variant Accents (per-plugin) === */
+.demo-hero--forms::before {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.1) 100%);
+}
+.demo-hero--reviews::before {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%);
+}
+.demo-hero--events::before {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(244, 63, 94, 0.1) 100%);
+}
+.demo-hero--booking::before {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%);
+}
+.demo-hero--learn::before {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(74, 222, 128, 0.1) 100%);
+}
+.demo-hero--project::before {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.1) 100%);
+}
+.demo-hero--tables::before {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(192, 132, 252, 0.1) 100%);
+}
+.demo-hero--community::before {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(251, 146, 60, 0.1) 100%);
+}
+
+/* Badge variant colors */
+.demo-badge--forms { background: rgba(16, 185, 129, 0.2) !important; border-color: rgba(16, 185, 129, 0.3) !important; color: #6ee7b7 !important; }
+.demo-badge--reviews { background: rgba(251, 191, 36, 0.2) !important; border-color: rgba(251, 191, 36, 0.3) !important; color: #fde68a !important; }
+.demo-badge--events { background: rgba(236, 72, 153, 0.2) !important; border-color: rgba(236, 72, 153, 0.3) !important; color: #f9a8d4 !important; }
+.demo-badge--booking { background: rgba(20, 184, 166, 0.2) !important; border-color: rgba(20, 184, 166, 0.3) !important; color: #5eead4 !important; }
+.demo-badge--learn { background: rgba(34, 197, 94, 0.2) !important; border-color: rgba(34, 197, 94, 0.3) !important; color: #86efac !important; }
+.demo-badge--project { background: rgba(59, 130, 246, 0.2) !important; border-color: rgba(59, 130, 246, 0.3) !important; color: #93c5fd !important; }
+.demo-badge--tables { background: rgba(168, 85, 247, 0.2) !important; border-color: rgba(168, 85, 247, 0.3) !important; color: #d8b4fe !important; }
+.demo-badge--community { background: rgba(249, 115, 22, 0.2) !important; border-color: rgba(249, 115, 22, 0.3) !important; color: #fdba74 !important; }
+
+/* === Fix: Hide raw shortcode text labels (they duplicate the rendered output) === */
+.demo-config-label {
+  display: none !important;
+}
+
+/* === Fix: Dark-mode form inputs === */
+.demo-showcase-block input[type="text"],
+.demo-showcase-block input[type="email"],
+.demo-showcase-block input[type="tel"],
+.demo-showcase-block input[type="url"],
+.demo-showcase-block input[type="number"],
+.demo-showcase-block input[type="date"],
+.demo-showcase-block input[type="password"],
+.demo-showcase-block textarea,
+.demo-showcase-block select,
+.gratis-form input[type="text"],
+.gratis-form input[type="email"],
+.gratis-form input[type="tel"],
+.gratis-form input[type="url"],
+.gratis-form input[type="number"],
+.gratis-form input[type="date"],
+.gratis-form input[type="password"],
+.gratis-form textarea,
+.gratis-form select {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 0.5rem !important;
+  color: #e2e8f0 !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.95rem !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.demo-showcase-block input:focus,
+.demo-showcase-block textarea:focus,
+.demo-showcase-block select:focus,
+.gratis-form input:focus,
+.gratis-form textarea:focus,
+.gratis-form select:focus {
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+.demo-showcase-block label,
+.gratis-form label {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+}
+
+/* === Fix: Reduce whitespace between hero and features === */
+.demo-hero {
+  margin-bottom: 2.5rem;
+}
+
+.demo-features {
+  margin-bottom: 3rem;
+}
+
+/* === Fix: Per-plugin hero glow (stronger) === */
+.demo-hero--forms::after {
+  background: radial-gradient(circle at 30% 40%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+}
+.demo-hero--reviews::after {
+  background: radial-gradient(circle at 30% 40%, rgba(251, 191, 36, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(245, 158, 11, 0.08) 0%, transparent 50%);
+}
+.demo-hero--events::after {
+  background: radial-gradient(circle at 30% 40%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(244, 63, 94, 0.08) 0%, transparent 50%);
+}
+.demo-hero--booking::after {
+  background: radial-gradient(circle at 30% 40%, rgba(20, 184, 166, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+}
+.demo-hero--learn::after {
+  background: radial-gradient(circle at 30% 40%, rgba(34, 197, 94, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(74, 222, 128, 0.08) 0%, transparent 50%);
+}
+.demo-hero--project::after {
+  background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+}
+.demo-hero--tables::after {
+  background: radial-gradient(circle at 30% 40%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(192, 132, 252, 0.08) 0%, transparent 50%);
+}
+.demo-hero--community::after {
+  background: radial-gradient(circle at 30% 40%, rgba(249, 115, 22, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(251, 146, 60, 0.08) 0%, transparent 50%);
+}
+
+/* === Fix: Showcase block gradient top bar per plugin === */
+.demo-hero--forms ~ .demo-section .demo-showcase-block::before,
+.page-id-251 .demo-showcase-block::before {
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+}
+.demo-hero--reviews ~ .demo-section .demo-showcase-block::before,
+.page-id-252 .demo-showcase-block::before {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+.demo-hero--events ~ .demo-section .demo-showcase-block::before,
+.page-id-253 .demo-showcase-block::before {
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+}
+.demo-hero--booking ~ .demo-section .demo-showcase-block::before,
+.page-id-254 .demo-showcase-block::before {
+  background: linear-gradient(90deg, #14b8a6, #06b6d4);
+}
+.demo-hero--learn ~ .demo-section .demo-showcase-block::before,
+.page-id-255 .demo-showcase-block::before {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+.demo-hero--project ~ .demo-section .demo-showcase-block::before,
+.page-id-256 .demo-showcase-block::before {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+}
+.demo-hero--tables ~ .demo-section .demo-showcase-block::before,
+.page-id-257 .demo-showcase-block::before {
+  background: linear-gradient(90deg, #a855f7, #c084fc);
+}
+.demo-hero--community ~ .demo-section .demo-showcase-block::before,
+.page-id-258 .demo-showcase-block::before {
+  background: linear-gradient(90deg, #f97316, #fb923c);
+}
+
+/* === Cookie banner: less intrusive === */
+.cookie-consent-banner,
+[class*="cookie"] {
+  backdrop-filter: blur(8px);
+}
+
+/* === Landing: rich demo preview tiles === */
+.demo-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 340px));
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 auto 4rem;
+  max-width: 1100px;
+  padding: 0 1rem;
+}
+@media (max-width: 1024px) {
+  .demo-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 340px));
+  }
+}
+@media (max-width: 680px) {
+  .demo-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.demo-preview-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  overflow: hidden;
+  text-decoration: none !important;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.demo-preview-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+.demo-preview-card .preview-thumb {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(168,85,247,0.18));
+}
+.demo-preview-card .preview-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.12), transparent 60%);
+}
+.demo-preview-card .preview-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+.demo-preview-card .preview-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.demo-preview-card .preview-body p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.55;
+  margin: 0 0 0.75rem;
+  flex: 1;
+}
+.demo-preview-card .preview-cta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a5b4fc;
+  transition: transform 0.2s ease;
+}
+.demo-preview-card:hover .preview-cta { color: #c7d2fe; }
+
+/* Per-plugin thumbnail gradients */
+.demo-preview--forms .preview-thumb     { background: linear-gradient(135deg, rgba(16,185,129,0.30), rgba(59,130,246,0.20)); }
+.demo-preview--reviews .preview-thumb   { background: linear-gradient(135deg, rgba(251,191,36,0.30), rgba(245,158,11,0.20)); }
+.demo-preview--events .preview-thumb    { background: linear-gradient(135deg, rgba(236,72,153,0.30), rgba(244,63,94,0.20)); }
+.demo-preview--booking .preview-thumb   { background: linear-gradient(135deg, rgba(20,184,166,0.30), rgba(6,182,212,0.20)); }
+.demo-preview--learn .preview-thumb     { background: linear-gradient(135deg, rgba(34,197,94,0.30), rgba(74,222,128,0.20)); }
+.demo-preview--project .preview-thumb   { background: linear-gradient(135deg, rgba(59,130,246,0.30), rgba(99,102,241,0.20)); }
+.demo-preview--tables .preview-thumb    { background: linear-gradient(135deg, rgba(168,85,247,0.30), rgba(192,132,252,0.20)); }
+.demo-preview--community .preview-thumb { background: linear-gradient(135deg, rgba(249,115,22,0.30), rgba(251,146,60,0.20)); }
+
+.demo-hero--suite::before { background: linear-gradient(135deg, rgba(99,102,241,0.18) 0%, rgba(168,85,247,0.12) 50%, rgba(236,72,153,0.10) 100%); }
