@@ -1,11 +1,11 @@
 === GRATIS ===
 Contributors: juslintek
 Requires at least: 6.5
-Tested up to: 6.9
+Tested up to: 7.1
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: full-site-editing, block-patterns, custom-colors, custom-typography, editor-style, rtl-language-support, wide-blocks, e-commerce, one-column
+Tags: full-site-editing, block-patterns, custom-colors, editor-style, rtl-language-support, wide-blocks, e-commerce, one-column
 
 Everything premium themes charge for. Forever free.
 
@@ -18,7 +18,7 @@ GRATIS is a performance-first Full Site Editing (FSE) WordPress block theme. Zer
 * Full Site Editing — edit header, footer, and every template visually
 * WooCommerce ready — shop, product, cart, and checkout templates included
 * Live search — instant REST API powered search, zero dependencies
-* Async notifications — toast system + bell icon panel
+* Async notifications — toast system
 * Dark theme with full color token system via theme.json v3
 * 100/100 PageSpeed out of the box
 * Zero render-blocking resources
@@ -61,7 +61,7 @@ Call from any JavaScript: `GRATIS.toast("Message", "success");` or `GRATIS.notif
 * 22 block patterns across 12 categories
 * WooCommerce templates (shop, product, cart, checkout)
 * Live search with REST API
-* Async notifications (toast + bell panel)
+* Async notifications (toast system)
 * Dark color scheme (styles/dark.json)
 * Full Site Editing templates (index, single, page, archive, 404, search)
 * 3 header variants, 2 footer variants
@@ -86,9 +86,10 @@ Copyright (C) 2014-2021 Indian Type Foundry, Colophon Foundry, and Google LLC
 License: SIL Open Font License, 1.1 — https://scripts.sil.org/OFL
 Files: assets/fonts/dm-sans-400.ttf, dm-sans-500.ttf, dm-sans-600.ttf, dm-sans-700.ttf
 
-Screenshot image
-Source: Unsplash — https://unsplash.com
-License: Unsplash License (CC0-equivalent, free for commercial use) — https://unsplash.com/license
+Theme screenshot (screenshot.png)
+Created directly from the GRATIS theme default homepage template.
+Copyright (C) 2024-2026 Juslintek.
+License: GPL-2.0-or-later — https://www.gnu.org/licenses/gpl-2.0.html
 
 The SIL Open Font License (OFL 1.1) is GPL-compatible. All bundled fonts are
 self-hosted (no external font CDN requests). No JavaScript libraries or CSS

@@ -16,11 +16,8 @@ add_action('after_setup_theme', function () {
     load_theme_textdomain('gratis', get_template_directory() . '/languages');
 });
 
-// ── Favicon + OG Meta ─────────────────────────────────────────────────────────
+// ── OG Meta fallback ──────────────────────────────────────────────────────────
 add_action('wp_head', function () {
-    $icon = get_template_directory_uri() . '/assets/favicon.svg';
-    echo '<link rel="icon" href="' . esc_url($icon) . '" type="image/svg+xml">' . "\n";
-
     // Defer Open Graph / Twitter Card output to the Gratis SEO plugin when it is
     // active, so the document never emits duplicate og:/twitter: tags. The
     // `gratis_theme_emit_meta` filter overrides this (default: emit only when
@@ -163,15 +160,9 @@ add_action('wp_enqueue_scripts', function () {
     ]);
 });
 
-// ── Dequeue junk ──────────────────────────────────────────────────────────────
+// ── Dequeue classic theme styles not needed for FSE ───────────────────────────
 add_action('wp_enqueue_scripts', function () {
-    // Classic theme styles not needed for FSE
     wp_dequeue_style('classic-theme-styles');
-    // jQuery not needed on frontend for FSE themes
-    if (!is_admin()) {
-        wp_deregister_script('jquery');
-        wp_deregister_script('jquery-migrate');
-    }
 }, 100);
 
 // Remove emoji — saves ~15KB JS + DNS lookup
@@ -179,13 +170,6 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('admin_print_styles', 'print_emoji_styles');
-
-// Remove oEmbed/REST discovery from <head> — reduces TTFB
-remove_action('wp_head', 'wp_oembed_add_discovery_links');
-remove_action('wp_head', 'rest_output_link_wp_head');
-remove_action('wp_head', 'wp_shortlink_wp_head');
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wlwmanifest_link');
 
 // Remove block library CSS on pages with no blocks
 add_action('wp_enqueue_scripts', function () {
@@ -443,6 +427,52 @@ header.wp-block-template-part{display:contents}
 .gratis-ghost-btn:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);color:#ffffff!important}
 .gratis-cat-heading{font-size:1.35rem;font-weight:700;color:#ffffff;margin:2.5rem 0 0.5rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
 .gratis-page-wrap{max-width:1180px;margin:0 auto;padding:56px 24px 80px}
+/* Screen reader utility (needed when wp-block-library is dequeued on non-singular pages) */
+.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}
+/* Reviews aggregate rating high contrast on dark card */
+.gratis-aggregate-rating{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.gratis-aggregate-rating-text{color:#e2e8f0!important;font-size:1rem;font-weight:600}
+/* Dark-mode plugin showcase widgets (Kanban board, Booking, Learn, Events, Community) */
+.gratis-board{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px!important}
+.gratis-board-col{min-width:0!important;background:#131720!important;color:#f8fafc!important;border:1px solid rgba(255,255,255,0.10)!important;border-radius:12px!important;padding:16px!important}
+.gratis-board-col h3{color:#f8fafc!important;font-weight:700!important;font-size:0.9rem!important;text-transform:uppercase;letter-spacing:0.05em;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.gratis-board-col .gratis-card{background:#1b2232!important;color:#f8fafc!important;border:1px solid rgba(255,255,255,0.10)!important;border-radius:10px!important;padding:12px!important}
+.gratis-board-col .gratis-card strong{color:#ffffff!important;display:block;margin-bottom:6px;font-size:0.92rem}
+.gratis-board-col .gratis-card span,.gratis-board-col .gratis-card-priority{display:inline-block;margin-left:0!important;padding:2px 8px;border-radius:999px;background:rgba(52,211,153,0.14);color:#6ee7b7!important;font-size:0.75rem!important;font-weight:600}
+.gratis-board-col .gratis-board-empty,.gratis-board-col p{color:rgba(255,255,255,0.58)!important}
+.gratis-booking-form{display:flex;flex-direction:column;gap:18px}
+.gratis-booking-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.gratis-booking-field{display:flex;flex-direction:column;gap:8px}
+.gratis-booking-field label,.gratis-booking-label{font-size:0.85rem;font-weight:600;color:#e2e8f0}
+.gratis-booking-field select,.gratis-booking-field input{background:#131720;color:#ffffff;border:1px solid rgba(255,255,255,0.16);border-radius:8px;padding:10px 12px;font-size:0.95rem}
+.gratis-booking-slots{display:flex;flex-wrap:wrap;gap:8px}
+.gratis-booking-slot{background:#131720;color:#e2e8f0;border:1px solid rgba(255,255,255,0.16);border-radius:8px;padding:8px 14px;font-size:0.88rem;font-weight:600;cursor:pointer;transition:all 150ms ease}
+.gratis-booking-slot:hover{border-color:#34d399;color:#ffffff}
+.gratis-booking-slot.is-selected{background:#22c55e;border-color:#22c55e;color:#052e16}
+.gratis-booking-submit{align-self:flex-start;background:#22c55e;color:#052e16;border:none;border-radius:8px;padding:12px 22px;font-size:0.95rem;font-weight:700;cursor:pointer;transition:background-color 150ms ease}
+.gratis-booking-submit:hover{background:#4ade80}
+.gratis-booking-status{margin:0;font-size:0.9rem;min-height:1.4em}
+.gratis-booking-status.is-success{color:#34d399}
+.gratis-booking-status.is-error{color:#f87171}
+.gratis-course-catalog{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.gratis-course-card{background:#131720;border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.gratis-course-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.gratis-course-card__title{margin:0;font-size:1.08rem;font-weight:700;line-height:1.3}
+.gratis-course-card__title a{color:#ffffff!important;text-decoration:none}
+.gratis-course-card__title a:hover{color:#34d399!important}
+.gratis-course-card__count{font-size:0.75rem;font-weight:600;color:#34d399;background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.25);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.gratis-course-card__desc{margin:0;color:rgba(255,255,255,0.74);font-size:0.9rem;line-height:1.55}
+.gratis-course-outline{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:rgba(255,255,255,0.78);font-size:0.88rem}
+.gratis-course-outline a{color:#93c5fd!important;text-decoration:none}
+.gratis-course-outline a:hover{text-decoration:underline}
+.gratis-events-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;list-style:none;padding:0;margin:0}
+.gratis-events-list li,.gratis-event-item{background:#131720;border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.gratis-events-list a,.gratis-event-item a{color:#ffffff!important;font-weight:700;text-decoration:none;font-size:1rem}
+.gratis-events-list a:hover,.gratis-event-item a:hover{color:#34d399!important}
+.gratis-activity-feed{display:flex;flex-direction:column;gap:4px}
+.gratis-activity-item{padding:14px 16px!important;background:#131720;border:1px solid rgba(255,255,255,0.08)!important;border-radius:10px;margin-bottom:8px;color:rgba(255,255,255,0.85)}
+.gratis-activity-item strong{color:#ffffff}
+.gratis-activity-item small{color:#94a3b8!important;margin-left:6px}
 /* Compact sleek cookie banner */
 #gratis-consent{padding:14px 20px!important;background:rgba(17,20,28,0.96)!important;backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.12)!important}
 /* Image styles */
