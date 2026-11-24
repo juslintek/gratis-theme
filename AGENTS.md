@@ -31,6 +31,5 @@ Gratis Theme is a Full Site Editing (FSE) block theme for WordPress with 35+ pat
 
 ## Related
 
-- `/Volumes/Projects/AGENTS.md` — Machine-wide agent guidance
-- `/Volumes/Projects/gratis/AGENTS.md` — Gratis plugin suite guidance
+- `https://gratis.superglobalsdevelopment.com/` — Gratis Suite website
 - `mcp-for-page-builders` — Visual auditing MCP for page builders
