@@ -151,41 +151,16 @@ add_action('send_headers', function () {
 
 // ── Enqueue search + notifications + animations ───────────────────────────
 add_action('wp_enqueue_scripts', function () {
-    $v = '1.0.2';
+    $v = '1.0.3';
     wp_enqueue_style('gratis-components', get_template_directory_uri() . '/assets/css/components.css', [], $v);
-    wp_enqueue_style('gratis-animations', get_template_directory_uri() . '/assets/css/animations.css', [], '1.0.0');
+    wp_enqueue_style('gratis-animations', get_template_directory_uri() . '/assets/css/animations.css', [], $v);
     wp_enqueue_script('gratis-search', get_template_directory_uri() . '/assets/js/search.js', [], $v, true);
     wp_enqueue_script('gratis-notifications', get_template_directory_uri() . '/assets/js/notifications.js', [], $v, true);
-    wp_enqueue_script('gratis-animations', get_template_directory_uri() . '/assets/js/animations.js', [], '1.0.0', true);
+    wp_enqueue_script('gratis-animations', get_template_directory_uri() . '/assets/js/animations.js', [], $v, true);
     wp_localize_script('gratis-search', 'gratisSearch', [
         'restUrl' => rest_url('wp/v2/'),
         'nonce'   => wp_create_nonce('wp_rest'),
     ]);
-});
-
-// ── Add bell + search to header via wp_body_open ──────────────────────────
-add_action('wp_footer', function () {
-    // Bell HTML injected into header via JS
-    echo '<script>
-(function(){
-  const nav = document.querySelector(".gratis-header .wp-block-navigation");
-  if (!nav) return;
-  const bell = document.createElement("div");
-  bell.className = "gratis-bell";
-  bell.setAttribute("role", "button");
-  bell.setAttribute("tabindex", "0");
-  bell.setAttribute("aria-label", "Notifications");
-  bell.innerHTML = `<span class="gratis-bell-icon" aria-hidden="true">🔔</span>
-    <span class="gratis-bell-badge" id="gratis-bell-count" aria-hidden="true"></span>
-    <div class="gratis-bell-panel">
-      <div class="gratis-bell-panel-header">Notifications</div>
-      <div class="gratis-bell-list" id="gratis-bell-list">
-        <div class="gratis-bell-empty">No notifications yet</div>
-      </div>
-    </div>`;
-  nav.parentNode.insertBefore(bell, nav.nextSibling);
-})();
-</script>';
 });
 
 // ── Dequeue junk ──────────────────────────────────────────────────────────────
@@ -431,11 +406,45 @@ header.wp-block-template-part{display:contents}
 .wp-block-button.is-style-outline .wp-block-button__link{background:transparent;border:2px solid currentColor;color:var(--wp--preset--color--primary)}
 .wp-block-button.is-style-ghost .wp-block-button__link{background:transparent;color:var(--wp--preset--color--primary)}
 .wp-block-button.is-style-pill .wp-block-button__link{border-radius:var(--wp--custom--radius--full)}
-/* Card group style */
+/* Card group & column styles */
 .wp-block-group.is-style-card{background:var(--wp--preset--color--base);border:1px solid var(--wp--preset--color--border);border-radius:var(--wp--custom--radius--lg);box-shadow:var(--wp--preset--shadow--sm)}
 .wp-block-group.is-style-card-dark{background:var(--wp--preset--color--base-dark);color:var(--wp--preset--color--base);border-radius:var(--wp--custom--radius--lg)}
 .wp-block-group.is-style-glass{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.3);border-radius:var(--wp--custom--radius--lg)}
-.wp-block-group.is-style-bordered{border:1px solid var(--wp--preset--color--border);border-radius:var(--wp--custom--radius--lg)}
+.wp-block-group.is-style-bordered,.wp-block-column.is-style-bordered{background:#131720;border:1px solid rgba(255,255,255,0.10);border-radius:14px;transition:border-color 180ms ease,transform 180ms ease,background-color 180ms ease}
+.wp-block-column.is-style-bordered:hover{border-color:rgba(52,211,153,0.42);background:#171d29;transform:translateY(-2px)}
+/* Hero ambient radial glow */
+.gratis-hero-section{background:radial-gradient(ellipse 80% 55% at 50% -10%,rgba(52,211,153,0.16),transparent 65%),radial-gradient(ellipse 60% 45% at 80% 20%,rgba(56,189,248,0.10),transparent 60%),#0d0f12!important}
+.gratis-hero-section .wp-block-cover__background{background:transparent!important}
+/* Modern comparison & data tables */
+.wp-block-table{overflow-x:auto}
+.wp-block-table table{border-collapse:separate;border-spacing:0;width:100%;background:#131720;border:1px solid rgba(255,255,255,0.10);border-radius:14px;overflow:hidden}
+.wp-block-table th{background:#181e2b;color:#f8fafc;font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;padding:14px 18px;border:none;border-bottom:1px solid rgba(255,255,255,0.10);text-align:left}
+.wp-block-table td{padding:14px 18px;border:none;border-bottom:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.82)}
+.wp-block-table tr:last-child td{border-bottom:none}
+.wp-block-table tbody tr:hover td{background:rgba(255,255,255,0.03)}
+.wp-block-table td strong{color:#34d399}
+/* Share bar spacing inside content */
+.gratis-share{margin:2rem 0 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08)}
+/* Button hover polish */
+.wp-block-button__link{transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease,background-color 150ms ease}
+.wp-block-button__link:hover{transform:translateY(-1px)}
+/* Downloads & plugin catalog cards */
+.gratis-catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;margin:1.5rem 0 2.5rem}
+.gratis-catalog-card{display:flex;flex-direction:column;justify-content:space-between;background:#131720;border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:22px;transition:border-color 180ms ease,transform 180ms ease,background-color 180ms ease}
+.gratis-catalog-card:hover{border-color:rgba(52,211,153,0.45);background:#171d29;transform:translateY(-2px)}
+.gratis-catalog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.gratis-catalog-title{font-size:1.05rem;font-weight:700;color:#ffffff;margin:0}
+.gratis-catalog-ver{font-size:0.75rem;font-weight:600;color:#34d399;background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.25);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.gratis-catalog-desc{font-size:0.9rem;line-height:1.55;color:rgba(255,255,255,0.74);margin:0 0 16px;flex:1}
+.gratis-catalog-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.gratis-dl-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-size:0.84rem;font-weight:600;text-decoration:none!important;background:#22c55e;color:#052e16!important;transition:background-color 150ms ease}
+.gratis-dl-btn:hover{background:#4ade80;color:#052e16!important}
+.gratis-ghost-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:8px;font-size:0.84rem;font-weight:600;text-decoration:none!important;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:#e2e8f0!important;transition:border-color 150ms ease,background-color 150ms ease}
+.gratis-ghost-btn:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);color:#ffffff!important}
+.gratis-cat-heading{font-size:1.35rem;font-weight:700;color:#ffffff;margin:2.5rem 0 0.5rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.gratis-page-wrap{max-width:1180px;margin:0 auto;padding:56px 24px 80px}
+/* Compact sleek cookie banner */
+#gratis-consent{padding:14px 20px!important;background:rgba(17,20,28,0.96)!important;backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.12)!important}
 /* Image styles */
 .wp-block-image.is-style-rounded img{border-radius:var(--wp--custom--radius--full)}
 .wp-block-image.is-style-shadow img{box-shadow:var(--wp--preset--shadow--lg)}
