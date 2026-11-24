@@ -10,49 +10,49 @@
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull" style="padding-top:0;padding-bottom:0">
 
-<!-- wp:cover {"dimRatio":90,"overlayColor":"base-dark","isUserOverlayColor":true,"minHeight":50,"minHeightUnit":"vh","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|16","bottom":"var:preset|spacing|16"}}}} -->
-<div class="wp-block-cover alignfull" style="padding-top:var(--wp--preset--spacing--16);padding-bottom:var(--wp--preset--spacing--16);min-height:50vh"><span aria-hidden="true" class="wp-block-cover__background has-base-dark-background-color has-background-dim-90 has-background-dim"></span><div class="wp-block-cover__inner-container">
+<!-- wp:cover {"dimRatio":90,"overlayColor":"base-dark","isUserOverlayColor":true,"minHeight":50,"minHeightUnit":"vh","align":"full","className":"gratis-hero-section","style":{"spacing":{"padding":{"top":"var:preset|spacing|16","bottom":"var:preset|spacing|16"}}}} -->
+<div class="wp-block-cover alignfull gratis-hero-section" style="padding-top:var(--wp--preset--spacing--16);padding-bottom:var(--wp--preset--spacing--16);min-height:50vh"><span aria-hidden="true" class="wp-block-cover__background has-base-dark-background-color has-background-dim-90 has-background-dim"></span><div class="wp-block-cover__inner-container">
 
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"860px"}} -->
 <div class="wp-block-group">
 
-<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"0.8rem","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.12em"},"color":{"text":"#22c55e"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
-<p class="has-text-align-center has-text-color" style="color:#22c55e;margin-bottom:var(--wp--preset--spacing--3);font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase">Free &amp; Open Source WordPress Ecosystem</p>
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"0.8rem","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.12em"},"color":{"text":"#34d399"},"spacing":{"margin":{"bottom":"var:preset|spacing|3"}}}} -->
+<p class="has-text-align-center has-text-color" style="color:#34d399;margin-bottom:var(--wp--preset--spacing--3);font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase">Free &amp; Open Source WordPress Ecosystem</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontSize":"clamp(2.5rem, 5vw, 4.5rem)","fontWeight":"800","lineHeight":"1.1"},"spacing":{"margin":{"bottom":"var:preset|spacing|6"}}}} -->
-<h1 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--6);font-size:clamp(2.5rem, 5vw, 4.5rem);font-weight:800;line-height:1.1">Everything premium plugins charge for.<br><mark style="background:linear-gradient(120deg, #7c3aed 0%, #2563eb 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Forever free.</mark></h1>
+<h1 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--6);font-size:clamp(2.5rem, 5vw, 4.5rem);font-weight:800;line-height:1.1">Everything premium plugins charge for.<br><mark style="background:linear-gradient(120deg, #34d399 0%, #38bdf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Forever free.</mark></h1>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"1.2rem","lineHeight":"1.65"},"color":{"text":"rgba(255,255,255,0.78)"},"spacing":{"margin":{"bottom":"var:preset|spacing|8"}}}} -->
-<p class="has-text-align-center has-text-color" style="color:rgba(255,255,255,0.78);margin-bottom:var(--wp--preset--spacing--8);font-size:1.2rem;line-height:1.65">33 standalone GPL-2.0 WordPress plugins and a Full Site Editing block theme covering performance, security, SEO, forms, commerce, backups, and AI tooling. No Pro tier, no nag screens, no phoning home.</p>
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"1.2rem","lineHeight":"1.65"},"color":{"text":"rgba(255,255,255,0.8)"},"spacing":{"margin":{"bottom":"var:preset|spacing|8"}}}} -->
+<p class="has-text-align-center has-text-color" style="color:rgba(255,255,255,0.8);margin-bottom:var(--wp--preset--spacing--8);font-size:1.2rem;line-height:1.65">33 standalone GPL-2.0 WordPress plugins and a Full Site Editing block theme covering performance, security, SEO, forms, commerce, backups, and AI tooling. No Pro tier, no nag screens, no phoning home.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|4"}}} -->
 <div class="wp-block-buttons">
 <!-- wp:button {"style":{"typography":{"fontSize":"1.05rem","fontWeight":"600"},"spacing":{"padding":{"top":"0.95rem","bottom":"0.95rem","left":"2.25rem","right":"2.25rem"}},"border":{"radius":"8px"}}} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-custom-font-size wp-element-button" href="/docs/" style="border-radius:8px;padding-top:0.95rem;padding-right:2.25rem;padding-bottom:0.95rem;padding-left:2.25rem;font-size:1.05rem;font-weight:600">Get Started Free →</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-custom-font-size wp-element-button" href="/downloads/" style="border-radius:8px;padding-top:0.95rem;padding-right:2.25rem;padding-bottom:0.95rem;padding-left:2.25rem;font-size:1.05rem;font-weight:600">Download Free ZIPs →</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"is-style-outline","style":{"typography":{"fontSize":"1.05rem","fontWeight":"600"},"spacing":{"padding":{"top":"0.95rem","bottom":"0.95rem","left":"2rem","right":"2rem"}},"border":{"radius":"8px"}}} -->
 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-custom-font-size wp-element-button" href="/demo/" style="border-radius:8px;padding-top:0.95rem;padding-right:2rem;padding-bottom:0.95rem;padding-left:2rem;font-size:1.05rem;font-weight:600">Explore Live Demos</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"is-style-outline","style":{"typography":{"fontSize":"1.05rem","fontWeight":"600"},"spacing":{"padding":{"top":"0.95rem","bottom":"0.95rem","left":"1.75rem","right":"1.75rem"}},"border":{"radius":"8px"}}} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-custom-font-size wp-element-button" href="https://github.com/juslintek/gratis-suite" style="border-radius:8px;padding-top:0.95rem;padding-right:1.75rem;padding-bottom:0.95rem;padding-left:1.75rem;font-size:1.05rem;font-weight:600">View on GitHub</a></div>
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-custom-font-size wp-element-button" href="https://github.com/juslintek?tab=repositories&amp;q=gratis" style="border-radius:8px;padding-top:0.95rem;padding-right:1.75rem;padding-bottom:0.95rem;padding-left:1.75rem;font-size:1.05rem;font-weight:600">View on GitHub</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
 
-<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"0.875rem"},"color":{"text":"rgba(255,255,255,0.65)"},"spacing":{"margin":{"top":"var:preset|spacing|4"}}}} -->
-<p class="has-text-align-center has-text-color" style="color:rgba(255,255,255,0.65);margin-top:var(--wp--preset--spacing--4);font-size:0.875rem">No credit card. No license keys. GPL-2.0-or-later licensed.</p>
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"0.875rem"},"color":{"text":"rgba(255,255,255,0.68)"},"spacing":{"margin":{"top":"var:preset|spacing|4"}}}} -->
+<p class="has-text-align-center has-text-color" style="color:rgba(255,255,255,0.68);margin-top:var(--wp--preset--spacing--4);font-size:0.875rem">No credit card. No license keys. Public GitHub source. GPL-2.0-or-later licensed.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:html -->
-<div class="gratis-hero-preview" style="max-width:760px;margin:2.5rem auto 0;border-radius:12px;overflow:hidden;background:#0d1117;border:1px solid rgba(255,255,255,0.12);box-shadow:0 24px 64px rgba(0,0,0,0.6)">
+<div class="gratis-hero-preview" style="max-width:760px;margin:2.5rem auto 0;border-radius:12px;overflow:hidden;background:#0d1117;border:1px solid rgba(255,255,255,0.14);box-shadow:0 24px 64px rgba(0,0,0,0.65),0 0 0 1px rgba(52,211,153,0.08)">
   <div style="display:flex;align-items:center;gap:8px;padding:10px 16px;background:#161b22;border-bottom:1px solid rgba(255,255,255,0.08)">
     <span aria-hidden="true" style="width:12px;height:12px;border-radius:50%;background:#ef4444;display:inline-block"></span>
     <span aria-hidden="true" style="width:12px;height:12px;border-radius:50%;background:#f59e0b;display:inline-block"></span>
     <span aria-hidden="true" style="width:12px;height:12px;border-radius:50%;background:#22c55e;display:inline-block"></span>
-    <span style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.65);font-family:monospace">wp-cli &mdash; Gratis Suite</span>
+    <span style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.7);font-family:monospace">wp-cli &mdash; Gratis Suite</span>
   </div>
   <pre style="margin:0;padding:20px 24px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.75;color:#cbd5e1;overflow-x:auto"><code><span style="color:#22c55e">$</span> wp plugin activate gratis-cache gratis-security gratis-seo gratis-builder
 <span style="color:#86efac">Success:</span> Activated 4 of 4 plugins.
@@ -242,7 +242,7 @@ request_monitoring WAF Request Inspection      <span style="color:#22c55e">PASS<
 <h3 class="wp-block-heading has-text-color" style="color:#ffffff;font-size:1.25rem">2. Standalone ZIPs</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"color":{"text":"#cbd5e1"},"typography":{"fontSize":"0.92rem"}}} -->
-<p class="has-text-color" style="color:#cbd5e1;font-size:0.92rem">Need only caching, SEO, security, or consent? Download any individual plugin ZIP and upload it via <em>Plugins &rarr; Add New</em>.</p>
+<p class="has-text-color" style="color:#cbd5e1;font-size:0.92rem">Need only caching, SEO, security, or consent? <a href="/downloads/">Download any individual plugin ZIP</a> and upload it via <em>Plugins &rarr; Add New</em>.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:column -->
@@ -281,7 +281,10 @@ wp gratis-cache status</code></pre>
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|8"},"blockGap":"var:preset|spacing|4"}}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--8)">
 <!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/docs/">Read Quick Start Guide</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/downloads/">Download All ZIPs</a></div>
+<!-- /wp:button -->
+<!-- wp:button {"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/docs/">Read Quick Start Guide</a></div>
 <!-- /wp:button -->
 <!-- wp:button {"className":"is-style-outline"} -->
 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/demo/">Try Live Demos</a></div>

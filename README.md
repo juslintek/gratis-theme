@@ -7,7 +7,7 @@
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-purple.svg)](https://php.net)
 [![PageSpeed](https://img.shields.io/badge/PageSpeed-100%2F100-green.svg)](https://pagespeed.web.dev)
 
-**Live demo:** [seo-seo.lt](https://seo-seo.lt)
+**Live demo:** [gratis.superglobalsdevelopment.com](https://gratis.superglobalsdevelopment.com)
 
 ![GRATIS Theme Screenshot](screenshot.png)
 
@@ -73,7 +73,7 @@ After activating:
 4. Add more sections: Features, Testimonials, CTA
 5. Publish
 
-Browse all 21 patterns at [seo-seo.lt/patterns](https://seo-seo.lt/patterns)
+Browse live demos and patterns at [gratis.superglobalsdevelopment.com/demo](https://gratis.superglobalsdevelopment.com/demo/)
 
 ---
 
@@ -154,4 +154,4 @@ Free to use, modify, and distribute. Commercial use allowed.
 
 ## Contributing
 
-Issues and PRs welcome. See [seo-seo.lt/docs](https://seo-seo.lt/docs) for documentation.
+Issues and PRs welcome. See [gratis.superglobalsdevelopment.com/docs](https://gratis.superglobalsdevelopment.com/docs/) for documentation.

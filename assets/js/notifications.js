@@ -94,14 +94,6 @@
   window.GRATIS.toast = toast;
   window.GRATIS.notify = addNotification;
 
-  // Demo: show a welcome toast after 2s on first visit
-  if (!localStorage.getItem('gratis_welcomed')) {
-    setTimeout(() => {
-      toast('Welcome to GRATIS — the free premium theme! 🎉', 'info', 4000);
-      localStorage.setItem('gratis_welcomed', '1');
-    }, 2000);
-  }
-
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initBell);
   } else {
