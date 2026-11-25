@@ -1,4 +1,7 @@
 (function() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
   if (!window.IntersectionObserver) { return; }
   var targets = document.querySelectorAll('.gratis-reveal');
   if (!targets.length) { return; }

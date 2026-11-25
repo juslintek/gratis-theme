@@ -1,0 +1,111 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Ocean Slate",
+  "slug": "ocean",
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "base", "name": "Base", "color": "#ffffff" },
+        { "slug": "base-2", "name": "Base 2", "color": "#f8fafc" },
+        { "slug": "base-3", "name": "Base 3", "color": "#f1f5f9" },
+        { "slug": "base-dark", "name": "Base Dark", "color": "#0b1120" },
+        { "slug": "surface", "name": "Surface", "color": "#111a2e" },
+        { "slug": "surface-2", "name": "Surface 2", "color": "#17233d" },
+        { "slug": "contrast", "name": "Contrast", "color": "#f8fafc" },
+        { "slug": "contrast-2", "name": "Contrast 2", "color": "#cbd5e1" },
+        { "slug": "contrast-3", "name": "Contrast 3", "color": "#94a3b8" },
+        { "slug": "primary", "name": "Primary", "color": "#38bdf8" },
+        { "slug": "primary-dark", "name": "Primary Dark", "color": "#0284c7" },
+        { "slug": "primary-light", "name": "Primary Light", "color": "#7dd3fc" },
+        { "slug": "accent", "name": "Accent", "color": "#6366f1" },
+        { "slug": "accent-light", "name": "Accent Light", "color": "#818cf8" },
+        { "slug": "success", "name": "Success", "color": "#34d399" },
+        { "slug": "warning", "name": "Warning", "color": "#fbbf24" },
+        { "slug": "danger", "name": "Danger", "color": "#f87171" },
+        { "slug": "border", "name": "Border", "color": "#1e3a5f" }
+      ]
+    },
+    "custom": {
+      "card-bg": "#111a2e",
+      "card-bg-hover": "#16223b",
+      "surface": {
+        "canvas": "#0b1120",
+        "card": "#111a2e",
+        "card-hover": "#16223b",
+        "elevated": "#182542",
+        "header": "rgba(11, 17, 32, 0.94)",
+        "border": "rgba(56, 189, 248, 0.18)",
+        "text": "#f8fafc",
+        "muted": "rgba(248, 250, 252, 0.78)",
+        "subtle": "#94a3b8"
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#0b1120",
+      "text": "#f8fafc"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#38bdf8"
+        },
+        ":hover": {
+          "color": {
+            "text": "#7dd3fc"
+          }
+        }
+      },
+      "h1": { "color": { "text": "#f8fafc" } },
+      "h2": { "color": { "text": "#f8fafc" } },
+      "h3": { "color": { "text": "#f8fafc" } },
+      "h4": { "color": { "text": "#f8fafc" } },
+      "h5": { "color": { "text": "#f8fafc" } },
+      "h6": { "color": { "text": "#f8fafc" } },
+      "button": {
+        "color": {
+          "background": "#38bdf8",
+          "text": "#082f49"
+        },
+        ":hover": {
+          "color": {
+            "background": "#7dd3fc"
+          }
+        }
+      }
+    },
+    "blocks": {
+      "core/navigation": {
+        "color": {
+          "text": "rgba(248, 250, 252, 0.84)"
+        }
+      },
+      "core/site-title": {
+        "color": {
+          "text": "#f8fafc"
+        }
+      },
+      "core/post-excerpt": {
+        "color": {
+          "text": "#cbd5e1"
+        }
+      },
+      "core/separator": {
+        "color": {
+          "text": "rgba(56, 189, 248, 0.24)"
+        },
+        "border": {
+          "color": "rgba(56, 189, 248, 0.24)"
+        }
+      },
+      "core/code": {
+        "color": {
+          "background": "#0d1117",
+          "text": "#f8fafc"
+        }
+      }
+    }
+  }
+}

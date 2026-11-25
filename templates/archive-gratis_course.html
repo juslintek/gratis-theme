@@ -1,21 +1,21 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
-<main class="wp-block-group alignfull" style="padding-top:0;padding-bottom:0">
+<!-- wp:group {"tagName":"main","anchor":"main-content","align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
+<main class="wp-block-group alignfull" id="main-content" style="padding-top:0;padding-bottom:0">
 
 <!-- wp:group {"className":"demo-hero","layout":{"type":"constrained","contentSize":"800px"}} -->
 <div class="wp-block-group demo-hero">
 
-<!-- wp:paragraph {"className":"demo-badge","align":"center"} -->
-<p class="demo-badge has-text-align-center">🎓 Live Demos</p>
+<!-- wp:paragraph {"align":"center","className":"demo-badge"} -->
+<p class="has-text-align-center demo-badge">🎓 Live Demos</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"textAlign":"center","level":1} -->
 <h1 class="wp-block-heading has-text-align-center">Courses</h1>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"demo-subtitle","align":"center"} -->
-<p class="demo-subtitle has-text-align-center">A lightweight LMS with structured courses, lessons, quizzes, and progress tracking — powered by <code>gratis-learn</code>.</p>
+<!-- wp:paragraph {"align":"center","className":"demo-subtitle"} -->
+<p class="has-text-align-center demo-subtitle">A lightweight LMS with structured courses, lessons, quizzes, and progress tracking — powered by <code>gratis-learn</code>.</p>
 <!-- /wp:paragraph -->
 
 </div>
@@ -28,20 +28,18 @@
 <div class="wp-block-query demo-features">
 <!-- wp:post-template -->
 
-<!-- wp:group {"className":"demo-feature-card","style":{"spacing":{"blockGap":"0.5rem"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<!-- wp:group {"className":"demo-feature-card","style":{"spacing":{"blockGap":"var:preset|spacing|2"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group demo-feature-card">
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"#a5b4fc"}}} -->
-<p style="color:#a5b4fc;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em">🎓 Course</p>
+<!-- wp:paragraph {"textColor":"accent-light","fontSize":"xs","style":{"typography":{"fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
+<p class="has-accent-light-color has-text-color has-xs-font-size" style="font-weight:600;letter-spacing:0.05em;text-transform:uppercase">🎓 Course</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:post-title {"level":3,"isLink":true,"style":{"elements":{"link":{"color":{"text":"#ffffff"}}}}} /-->
+<!-- wp:post-title {"level":3,"isLink":true,"textColor":"contrast"} /-->
 
 <!-- wp:post-excerpt {"excerptLength":22} /-->
 
-<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0.5rem"}}}} -->
-<p style="margin-top:0.5rem"><a href="#" data-wp-on--click="core/query::actions.navigate">View course →</a></p>
-<!-- /wp:paragraph -->
+<!-- wp:read-more {"content":"View details →","textColor":"accent-light"} /-->
 
 </div>
 <!-- /wp:group -->
@@ -66,8 +64,8 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"demo-section","style":{"color":{"background":"#0f172a"}},"layout":{"type":"constrained","contentSize":"700px"}} -->
-<div class="wp-block-group demo-section has-background" style="background-color:#0f172a">
+<!-- wp:group {"backgroundColor":"surface","className":"demo-section","layout":{"type":"constrained","contentSize":"700px"}} -->
+<div class="wp-block-group demo-section has-surface-background-color has-background">
 
 <!-- wp:group {"className":"demo-section-header"} -->
 <div class="wp-block-group demo-section-header">
@@ -82,8 +80,8 @@
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons">
-<!-- wp:button {"className":"is-style-fill"} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="/demo/">Explore the Demo Suite →</a></div>
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/demo/">Explore the Demo Suite →</a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->

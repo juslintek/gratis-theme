@@ -1,14 +1,27 @@
-/* ── Scroll-reveal animations (IntersectionObserver-driven, JS-class-toggled) ── */
-/* @supports guard: only applied when browser can handle animation-timeline:view()
-   OR when classes are toggled by animations.js (both paths use the same rules).   */
-.gratis-animate {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+/* ── Scroll-reveal animations (Frontend only) ──────────────────────────────── */
+@keyframes gratis-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.gratis-visible {
-  opacity: 1;
-  transform: none;
+
+@media (prefers-reduced-motion: no-preference) {
+  body:not(.block-editor-page) .gratis-animate {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  body:not(.block-editor-page) .gratis-animate.gratis-visible,
+  .gratis-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Stagger children inside a revealed group */
@@ -16,6 +29,24 @@
 .gratis-visible > .wp-block-column:nth-child(2) { transition-delay: 0.08s; }
 .gratis-visible > .wp-block-column:nth-child(3) { transition-delay: 0.16s; }
 .gratis-visible > .wp-block-column:nth-child(4) { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    body:not(.block-editor-page) .wp-block-group.alignfull > .wp-block-group,
+    body:not(.block-editor-page) .wp-block-group.alignfull > .wp-block-columns,
+    body:not(.block-editor-page) .wp-block-group.alignfull > .wp-block-heading,
+    body:not(.block-editor-page) .wp-block-group.alignfull > figure,
+    body:not(.block-editor-page) .wp-block-group.alignfull .wp-block-column,
+    body:not(.block-editor-page) .wp-block-group.alignfull .demo-feature-card,
+    body:not(.block-editor-page) .wp-block-group.alignfull .demo-preview-card,
+    body:not(.block-editor-page) .wp-block-group.alignfull .demo-stat,
+    body:not(.block-editor-page) .wp-block-group.alignfull .wp-block-heading {
+      animation: gratis-fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .gratis-animate,

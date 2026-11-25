@@ -73,7 +73,7 @@
 
 .demo-hero .demo-subtitle {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.72);
   max-width: 600px;
   margin: 0 auto 2rem;
   line-height: 1.7;
@@ -129,7 +129,7 @@
 
 .demo-feature-card p {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.72);
   line-height: 1.6;
   margin: 0;
 }
@@ -152,7 +152,7 @@
 }
 
 .demo-section-header p {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.72);
   font-size: 1rem;
 }
 
@@ -218,7 +218,7 @@
 
 .demo-stat .stat-label {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.72);
   margin-top: 0.25rem;
 }
 
@@ -240,7 +240,7 @@
 }
 
 .demo-cta p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.72);
   margin-bottom: 1.5rem;
   max-width: 500px;
   margin-left: auto;
@@ -261,6 +261,7 @@
 }
 
 .demo-cta a.demo-btn:hover {
+  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
 }
@@ -536,7 +537,7 @@
 }
 .demo-preview-card .preview-body p {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.72);
   line-height: 1.55;
   margin: 0 0 0.75rem;
   flex: 1;
