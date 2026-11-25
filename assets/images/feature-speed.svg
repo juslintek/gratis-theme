@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420" role="img" aria-labelledby="feature-speed-title">
+  <title id="feature-speed-title">100 out of 100 Performance Gauge and Metrics Illustration</title>
+  <defs>
+    <linearGradient id="gaugeArc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="420" rx="20" fill="#0d0f12"/>
+  <rect x="32" y="32" width="536" height="356" rx="16" fill="#131720" stroke="#263145" stroke-width="1.5"/>
+  <circle cx="195" cy="210" r="102" fill="#0d1117" stroke="#222d40" stroke-width="14"/>
+  <circle cx="195" cy="210" r="102" fill="none" stroke="url(#gaugeArc)" stroke-width="14" stroke-linecap="round" stroke-dasharray="600 640" transform="rotate(-90 195 210)"/>
+  <text x="195" y="206" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#34d399">100</text>
+  <text x="195" y="234" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#94a3b8" letter-spacing="2">PERFORMANCE</text>
+  <rect x="336" y="76" width="196" height="68" rx="12" fill="#181e2b" stroke="#2a364d"/>
+  <text x="356" y="104" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">ACCESSIBILITY</text>
+  <text x="356" y="130" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#34d399">100 / 100</text>
+  <rect x="336" y="162" width="196" height="68" rx="12" fill="#181e2b" stroke="#2a364d"/>
+  <text x="356" y="190" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">BEST PRACTICES</text>
+  <text x="356" y="216" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#38bdf8">100 / 100</text>
+  <rect x="336" y="248" width="196" height="96" rx="12" fill="#181e2b" stroke="#2a364d"/>
+  <text x="356" y="276" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">FIRST CONTENTFUL PAINT</text>
+  <text x="356" y="302" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#f8fafc">0.4 s</text>
+  <rect x="356" y="316" width="156" height="8" rx="4" fill="#0d1117"/>
+  <rect x="356" y="316" width="146" height="8" rx="4" fill="url(#gaugeArc)"/>
+</svg>

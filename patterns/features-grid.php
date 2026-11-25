@@ -6,45 +6,45 @@
  * Keywords: features, grid, icons, benefits
  */
 ?>
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|16","bottom":"var:preset|spacing|16"},"color":{"background":"var:preset|color|base-2"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
+<!-- wp:group {"backgroundColor":"surface","textColor":"contrast","style":{"spacing":{"padding":{"top":"var:preset|spacing|16","bottom":"var:preset|spacing|16"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-contrast-color has-surface-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--16);padding-bottom:var(--wp--preset--spacing--16)">
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3","margin":{"bottom":"var:preset|spacing|12"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
-<div class="wp-block-group">
-<!-- wp:heading {"textAlign":"center","style":{"typography":{"fontSize":"var:preset|font-size|3xl","fontWeight":"800"}}} --><h2 class="has-text-align-center">Everything you need</h2><!-- /wp:heading -->
-<!-- wp:paragraph {"textAlign":"center","style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|lg"}}} --><p class="has-text-align-center">No plugins to buy. No features to unlock. Everything ships free.</p><!-- /wp:paragraph -->
+<div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--12)">
+<!-- wp:heading {"textAlign":"center","level":2,"textColor":"contrast","fontSize":"3-xl","style":{"typography":{"fontWeight":"800"}}} --><h2 class="wp-block-heading has-text-align-center has-contrast-color has-text-color has-3-xl-font-size" style="font-weight:800"><?php esc_html_e( 'Everything you need', 'gratis' ); ?></h2><!-- /wp:heading -->
+<!-- wp:paragraph {"align":"center","textColor":"contrast-2","fontSize":"lg"} --><p class="has-text-align-center has-contrast-2-color has-text-color has-lg-font-size"><?php esc_html_e( 'No plugins to buy. No features to unlock. Everything ships free.', 'gratis' ); ?></p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|6","top":"var:preset|spacing|6"}}}} -->
 <div class="wp-block-columns">
 <!-- wp:column -->
 <div class="wp-block-column">
-<!-- wp:group {"className":"is-style-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|8","bottom":"var:preset|spacing|8","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group is-style-card">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} --><p>⚡</p><!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xl","fontWeight":"700"}}} --><h3>Blazing fast</h3><!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|sm"}}} --><p>100/100 PageSpeed out of the box. Zero render-blocking resources. Per-block CSS loading.</p><!-- /wp:paragraph -->
+<!-- wp:group {"backgroundColor":"base-dark","textColor":"contrast","className":"is-style-bordered","style":{"spacing":{"padding":{"top":"var:preset|spacing|8","right":"var:preset|spacing|8","bottom":"var:preset|spacing|8","left":"var:preset|spacing|8"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group is-style-bordered has-contrast-color has-base-dark-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--8);padding-right:var(--wp--preset--spacing--8);padding-bottom:var(--wp--preset--spacing--8);padding-left:var(--wp--preset--spacing--8)">
+<!-- wp:paragraph {"fontSize":"3-xl"} --><p class="has-3-xl-font-size">⚡</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"textColor":"contrast","fontSize":"xl","style":{"typography":{"fontWeight":"700"}}} --><h3 class="wp-block-heading has-contrast-color has-text-color has-xl-font-size" style="font-weight:700"><?php esc_html_e( 'Blazing fast', 'gratis' ); ?></h3><!-- /wp:heading -->
+<!-- wp:paragraph {"textColor":"contrast-2","fontSize":"sm"} --><p class="has-contrast-2-color has-text-color has-sm-font-size"><?php esc_html_e( '100/100 PageSpeed out of the box. Zero render-blocking resources. Per-block CSS loading.', 'gratis' ); ?></p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 </div>
 <!-- /wp:column -->
 <!-- wp:column -->
 <div class="wp-block-column">
-<!-- wp:group {"className":"is-style-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|8","bottom":"var:preset|spacing|8","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group is-style-card">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} --><p>🎨</p><!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xl","fontWeight":"700"}}} --><h3>22 patterns</h3><!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|sm"}}} --><p>Heroes, sections, cards, testimonials, FAQs, and forms — all included. One click to insert.</p><!-- /wp:paragraph -->
+<!-- wp:group {"backgroundColor":"base-dark","textColor":"contrast","className":"is-style-bordered","style":{"spacing":{"padding":{"top":"var:preset|spacing|8","right":"var:preset|spacing|8","bottom":"var:preset|spacing|8","left":"var:preset|spacing|8"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group is-style-bordered has-contrast-color has-base-dark-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--8);padding-right:var(--wp--preset--spacing--8);padding-bottom:var(--wp--preset--spacing--8);padding-left:var(--wp--preset--spacing--8)">
+<!-- wp:paragraph {"fontSize":"3-xl"} --><p class="has-3-xl-font-size">🎨</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"textColor":"contrast","fontSize":"xl","style":{"typography":{"fontWeight":"700"}}} --><h3 class="wp-block-heading has-contrast-color has-text-color has-xl-font-size" style="font-weight:700"><?php esc_html_e( '22 patterns', 'gratis' ); ?></h3><!-- /wp:heading -->
+<!-- wp:paragraph {"textColor":"contrast-2","fontSize":"sm"} --><p class="has-contrast-2-color has-text-color has-sm-font-size"><?php esc_html_e( 'Heroes, sections, cards, testimonials, FAQs, and forms — all included. One click to insert.', 'gratis' ); ?></p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 </div>
 <!-- /wp:column -->
 <!-- wp:column -->
 <div class="wp-block-column">
-<!-- wp:group {"className":"is-style-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|8","bottom":"var:preset|spacing|8","left":"var:preset|spacing|8","right":"var:preset|spacing|8"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group is-style-card">
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} --><p>🔓</p><!-- /wp:paragraph -->
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xl","fontWeight":"700"}}} --><h3>Zero upsells</h3><!-- /wp:heading -->
-<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|contrast-2"},"typography":{"fontSize":"var:preset|font-size|sm"}}} --><p>No "Pro" tier. No locked features. No license keys. GPL-2.0-or-later licensed — free for unlimited personal and client sites.</p><!-- /wp:paragraph -->
+<!-- wp:group {"backgroundColor":"base-dark","textColor":"contrast","className":"is-style-bordered","style":{"spacing":{"padding":{"top":"var:preset|spacing|8","right":"var:preset|spacing|8","bottom":"var:preset|spacing|8","left":"var:preset|spacing|8"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group is-style-bordered has-contrast-color has-base-dark-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--8);padding-right:var(--wp--preset--spacing--8);padding-bottom:var(--wp--preset--spacing--8);padding-left:var(--wp--preset--spacing--8)">
+<!-- wp:paragraph {"fontSize":"3-xl"} --><p class="has-3-xl-font-size">🔓</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"textColor":"contrast","fontSize":"xl","style":{"typography":{"fontWeight":"700"}}} --><h3 class="wp-block-heading has-contrast-color has-text-color has-xl-font-size" style="font-weight:700"><?php esc_html_e( 'Zero upsells', 'gratis' ); ?></h3><!-- /wp:heading -->
+<!-- wp:paragraph {"textColor":"contrast-2","fontSize":"sm"} --><p class="has-contrast-2-color has-text-color has-sm-font-size"><?php esc_html_e( 'No "Pro" tier. No locked features. No license keys. GPL-2.0-or-later licensed — free for unlimited personal and client sites.', 'gratis' ); ?></p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 </div>

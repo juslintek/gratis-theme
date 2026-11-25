@@ -2,90 +2,183 @@
 (function() {
   'use strict';
 
-  // ── Toast system ──────────────────────────────────────────────────────────
-  const TOAST_TYPES = { success: '✓', error: '✕', info: 'ℹ', warning: '⚠' };
+  var TOAST_TYPES = { success: '✓', error: '✕', info: 'ℹ', warning: '⚠' };
 
-  function toast(message, type = 'info', duration = 4000) {
-    let container = document.getElementById('gratis-toasts');
+  function normalizeType(type) {
+    return Object.prototype.hasOwnProperty.call(TOAST_TYPES, type) ? type : 'info';
+  }
+
+  function safeLink(raw) {
+    if (typeof raw !== 'string') return '#';
+    var trimmed = raw.trim();
+    if (/^(https?:\/\/|\/(?!\/)|#)/i.test(trimmed)) {
+      return trimmed;
+    }
+    return '#';
+  }
+
+  function toast(message, type, duration) {
+    var safeType = normalizeType(type || 'info');
+    var delay = typeof duration === 'number' ? duration : 4000;
+
+    var container = document.getElementById('gratis-toasts');
     if (!container) {
       container = document.createElement('div');
       container.id = 'gratis-toasts';
-      container.style.cssText = 'position:fixed;bottom:24px;left:24px;right:auto;z-index:99999;display:flex;flex-direction:column;gap:12px;pointer-events:none;max-width:380px';
+      container.setAttribute('role', 'status');
+      container.setAttribute('aria-live', 'polite');
       document.body.appendChild(container);
     }
 
-    const el = document.createElement('div');
-    el.className = `gratis-toast gratis-toast--${type}`;
-    el.innerHTML = `<span class="gratis-toast-icon">${TOAST_TYPES[type] || 'ℹ'}</span>
-      <span class="gratis-toast-msg">${message}</span>
-      <button class="gratis-toast-close" aria-label="Close">×</button>`;
+    var el = document.createElement('div');
+    el.className = 'gratis-toast gratis-toast--' + safeType;
 
-    el.querySelector('.gratis-toast-close').onclick = () => dismiss(el);
+    var icon = document.createElement('span');
+    icon.className = 'gratis-toast-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.textContent = TOAST_TYPES[safeType];
+
+    var msg = document.createElement('span');
+    msg.className = 'gratis-toast-msg';
+    msg.textContent = String(message == null ? '' : message);
+
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'gratis-toast-close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.textContent = '×';
+    closeBtn.addEventListener('click', function() {
+      dismiss(el);
+    });
+
+    el.appendChild(icon);
+    el.appendChild(msg);
+    el.appendChild(closeBtn);
     container.appendChild(el);
 
-    // Animate in
-    requestAnimationFrame(() => el.classList.add('gratis-toast--visible'));
+    requestAnimationFrame(function() {
+      el.classList.add('gratis-toast--visible');
+    });
 
-    if (duration > 0) setTimeout(() => dismiss(el), duration);
+    if (delay > 0) {
+      setTimeout(function() {
+        dismiss(el);
+      }, delay);
+    }
     return el;
   }
 
   function dismiss(el) {
     el.classList.remove('gratis-toast--visible');
-    el.addEventListener('transitionend', () => el.remove(), { once: true });
+    el.addEventListener('transitionend', function() {
+      el.remove();
+    }, { once: true });
   }
 
   // ── Bell notification system ──────────────────────────────────────────────
-  let bellCount = 0;
-  const bellListeners = [];
+  var bellCount = 0;
+
+  function setPanelState(bell, panel, badge, open) {
+    panel.classList.toggle('gratis-bell-panel--open', open);
+    bell.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      bellCount = 0;
+      if (badge) {
+        badge.textContent = '';
+        badge.classList.remove('gratis-bell-badge--active');
+      }
+    }
+  }
 
   function initBell() {
-    const bells = document.querySelectorAll('.gratis-bell');
-    bells.forEach(bell => {
-      const badge = bell.querySelector('.gratis-bell-badge');
-      const panel = bell.querySelector('.gratis-bell-panel');
+    var bells = document.querySelectorAll('.gratis-bell');
+    bells.forEach(function(bell) {
+      var badge = bell.querySelector('.gratis-bell-badge');
+      var panel = bell.querySelector('.gratis-bell-panel');
       if (!panel) return;
+
+      if (bell.tagName !== 'BUTTON') {
+        bell.setAttribute('role', 'button');
+        if (!bell.hasAttribute('tabindex')) {
+          bell.setAttribute('tabindex', '0');
+        }
+      }
+      bell.setAttribute('aria-expanded', panel.classList.contains('gratis-bell-panel--open') ? 'true' : 'false');
+
+      function toggle() {
+        var isOpen = panel.classList.contains('gratis-bell-panel--open');
+        setPanelState(bell, panel, badge, !isOpen);
+      }
 
       bell.addEventListener('click', function(e) {
         e.stopPropagation();
-        const open = panel.classList.toggle('gratis-bell-panel--open');
-        if (open) {
-          // Mark as read
-          bellCount = 0;
-          if (badge) badge.textContent = '';
-          badge?.classList.remove('gratis-bell-badge--active');
+        toggle();
+      });
+
+      bell.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          toggle();
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && panel.classList.contains('gratis-bell-panel--open')) {
+          e.preventDefault();
+          setPanelState(bell, panel, badge, false);
+          bell.focus();
         }
       });
 
       document.addEventListener('click', function(e) {
-        if (!bell.contains(e.target)) panel.classList.remove('gratis-bell-panel--open');
+        if (!bell.contains(e.target)) {
+          setPanelState(bell, panel, badge, false);
+        }
       });
     });
   }
 
-  function addNotification(message, type = 'info', link = null) {
+  function addNotification(message, type, link) {
+    var safeType = normalizeType(type || 'info');
     bellCount++;
-    const bells = document.querySelectorAll('.gratis-bell');
-    bells.forEach(bell => {
-      const badge = bell.querySelector('.gratis-bell-badge');
-      const list = bell.querySelector('.gratis-bell-list');
-      if (badge) { badge.textContent = bellCount > 9 ? '9+' : bellCount; badge.classList.add('gratis-bell-badge--active'); }
+    var bells = document.querySelectorAll('.gratis-bell');
+    bells.forEach(function(bell) {
+      var badge = bell.querySelector('.gratis-bell-badge');
+      var list = bell.querySelector('.gratis-bell-list');
+      if (badge) {
+        badge.textContent = bellCount > 9 ? '9+' : String(bellCount);
+        badge.classList.add('gratis-bell-badge--active');
+      }
       if (list) {
-        const item = document.createElement('a');
-        item.className = `gratis-bell-item gratis-bell-item--${type}`;
-        item.href = link || '#';
-        item.innerHTML = `<span class="gratis-bell-dot"></span><span>${message}</span><time>${new Date().toLocaleTimeString()}</time>`;
+        var item = document.createElement('a');
+        item.className = 'gratis-bell-item gratis-bell-item--' + safeType;
+        item.href = safeLink(link);
+
+        var dot = document.createElement('span');
+        dot.className = 'gratis-bell-dot';
+
+        var text = document.createElement('span');
+        text.textContent = String(message == null ? '' : message);
+
+        var time = document.createElement('time');
+        time.textContent = new Date().toLocaleTimeString();
+
+        item.appendChild(dot);
+        item.appendChild(text);
+        item.appendChild(time);
         list.prepend(item);
-        // Keep max 10
-        while (list.children.length > 10) list.lastChild.remove();
+
+        while (list.children.length > 10) {
+          list.lastChild.remove();
+        }
       }
     });
-    // Also show toast
-    toast(message, type, 3000);
+    toast(message, safeType, 3000);
   }
 
   // ── WooCommerce cart events ───────────────────────────────────────────────
-  document.addEventListener('added_to_cart', function(e) {
+  document.addEventListener('added_to_cart', function() {
     addNotification('Item added to cart!', 'success', '/cart');
   });
 

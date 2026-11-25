@@ -1,157 +1,189 @@
-# GRATIS — The Free Premium WordPress Theme
+# GRATIS — Full Site Editing WordPress Block Theme (`v1.0.2`)
 
 > Everything premium themes charge for. Forever free.
 
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL%202.0%2B-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![WordPress](https://img.shields.io/badge/WordPress-6.5%2B-blue.svg)](https://wordpress.org)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-purple.svg)](https://php.net)
-[![PageSpeed](https://img.shields.io/badge/PageSpeed-100%2F100-green.svg)](https://pagespeed.web.dev)
 
-**Live demo:** [gratis.superglobalsdevelopment.com](https://gratis.superglobalsdevelopment.com)
+- **Live Theme Demo:** [gratis.superglobalsdevelopment.com/demo/gratis-theme/](https://gratis.superglobalsdevelopment.com/demo/gratis-theme/)
+- **Theme Documentation:** [gratis.superglobalsdevelopment.com/docs/gratis-theme/](https://gratis.superglobalsdevelopment.com/docs/gratis-theme/)
+- **Download Latest ZIP:** [gratis-theme-1.0.2.zip](https://gratis.superglobalsdevelopment.com/downloads/gratis-theme-1.0.2.zip)
 
 ![GRATIS Theme Screenshot](screenshot.png)
 
 ---
 
-## Why GRATIS?
+## Overview
 
-| Feature | GRATIS | Astra Pro | Divi | Elementor Pro |
-|---|---|---|---|---|
-| Price | **$0 forever** | $59/yr | $89/yr | $99/yr |
-| All patterns unlocked | ✅ | ❌ Paid | ❌ Paid | ❌ Paid |
-| PageSpeed mobile | ✅ 95–100 | ⚠️ 70–85 | ⚠️ 60–75 | ⚠️ 55–70 |
-| Frontend JS | ✅ 0 KB | ⚠️ ~80 KB | ❌ ~500 KB | ❌ ~400 KB |
-| Full Site Editing | ✅ Native | ✅ | ❌ | ❌ |
-| Upsells | ✅ None | ❌ Constant | ❌ Constant | ❌ Constant |
-| License | ✅ GPL-2.0+ | GPL | GPL | GPL |
+GRATIS (`gratis`, `v1.0.2`) is a Full Site Editing (FSE) WordPress block theme built around `theme.json` v3, self-hosted OFL fonts, and 1:1 Gutenberg Edit Mode to Published Frontend parity. There is no paid Pro tier, no license key, and no jQuery dependency.
 
----
-
-## Features
-
-- **21 block patterns** across 12 categories — Heroes, Features, Pricing, Testimonials, FAQ, Team, Contact, Portfolio, WooCommerce, Membership, Blog, Sections
-- **Full Site Editing** — edit header, footer, and every template visually
-- **WooCommerce ready** — shop, product, cart, and checkout templates
-- **Live search** — instant REST API powered search, 200ms debounce, zero dependencies
-- **Async notifications** — toast system + bell icon panel, WooCommerce cart events
-- **Dark theme** — full color token system via `theme.json` v3
-- **100/100 PageSpeed** out of the box — no optimization plugins needed
-- **Zero render-blocking resources** — critical CSS inlined, no jQuery
-- **stale-while-revalidate** Cache-Control headers for CDN edge caching
-- **HTTP/3 ready** — tested on OpenLiteSpeed with QUIC
-- **Accessibility** — skip links, keyboard navigation, WCAG AA contrast
+| Capability | GRATIS (`v1.0.2`) |
+|---|---|
+| Price & License | **$0 forever** (GPL-2.0-or-later) |
+| Block Patterns | **22 patterns** across **19 registered categories** |
+| Custom Block Styles | **17 registered styles** across 6 core block types |
+| Global Style Variations | **4 variations** (`dark.json`, `light.json`, `emerald.json`, `ocean.json`) |
+| FSE Templates & Parts | **18 templates** (`templates/*.html`) + **5 template parts** (`parts/*.html`) |
+| Frontend JS | **0 KB jQuery** (`~7 KB` vanilla JS for search, notifications, and reveal) |
+| Fonts & Illustrations | **Self-hosted** Space Grotesk + DM Sans (OFL 1.1) + local SVG artwork |
 
 ---
 
 ## Installation
 
 ### WordPress Admin
-1. Go to **Appearance → Themes → Add New → Upload Theme**
-2. Upload `gratis.zip`
-3. Click **Activate**
+1. Download [`gratis-theme-1.0.2.zip`](https://gratis.superglobalsdevelopment.com/downloads/gratis-theme-1.0.2.zip).
+2. Go to **Appearance → Themes → Add New → Upload Theme**.
+3. Upload the ZIP and click **Activate**.
 
 ### WP-CLI
 ```bash
-wp theme install https://github.com/juslintek/gratis/archive/main.zip --activate
+wp theme install https://github.com/juslintek/gratis-theme/archive/main.zip --activate
 ```
 
 ### Development
 ```bash
-git clone git@github.com:juslintek/gratis.git wp-content/themes/gratis
-wp theme activate gratis
+git clone git@github.com:juslintek/gratis-theme.git wp-content/themes/gratis-theme
+wp theme activate gratis-theme
 ```
 
 ---
 
-## Quick Start
+## 1:1 Gutenberg Edit-Mode Parity
 
-After activating:
+Both the iframed Post Editor / Site Editor (`add_theme_support('editor-styles')` + `add_editor_style()`) and the published frontend (`wp_enqueue_scripts`) load the exact same stylesheets and normalized `theme.json` v3 tokens:
 
-1. Go to **Pages → Add New**
-2. Click **+** → **Patterns** tab
-3. Insert **Hero — Bold Centered**
-4. Add more sections: Features, Testimonials, CTA
-5. Publish
+- `assets/css/theme.css` — layout, root resets, typography, surfaces, and custom block styles
+- `assets/css/components.css` — live search, toast/bell notifications, tables, code blocks, and cards
+- `assets/css/demo-showcase.css` — showcase grid and hero styles on demo/CPT views
 
-Browse live demos and patterns at [gratis.superglobalsdevelopment.com/demo](https://gratis.superglobalsdevelopment.com/demo/)
+Scroll-reveal rules are scoped to frontend `prefers-reduced-motion: no-preference`, so blocks stay visible (`opacity: 1`) and static while editing in Gutenberg. Every pattern, template, and template part uses canonical core block markup with zero "Attempt Block Recovery" prompts.
 
 ---
 
-## Pattern Library
+## Design System (`theme.json` v3) & 4 Style Variations
 
-| Category | Patterns |
+- **18 Color Palette Tokens:** `base`, `base-2`, `base-3`, `base-dark`, `surface`, `surface-2`, `contrast`, `contrast-2`, `contrast-3`, `primary`, `primary-dark`, `primary-light`, `accent`, `accent-light`, `success`, `warning`, `danger`, `border`
+- **3 Gradients:** `primary-to-accent`, `dark-to-primary`, `subtle`
+- **Fluid Typography (`clamp()`):** `xs`, `sm`, `md`, `lg`, `xl`, `2-xl`, `3-xl`, `4-xl`, `5-xl` using self-hosted `Space Grotesk` (headings), `DM Sans` (body), and system monospace (zero Google Fonts CDN requests)
+- **Spacing, Shadows & Radius:** 13 spacing presets (`1`–`32`), 6 shadow presets (`xs`–`2-xl`), and 5 border-radius presets (`sm`, `md`, `lg`, `xl`, `2xl`, plus `full`)
+
+Switch palettes anytime in **Appearance → Editor → Styles**:
+
+| Variation | File | Character |
+|---|---|---|
+| **Obsidian Dark** | `styles/dark.json` | Default dark slate canvas with emerald primary accent |
+| **Daylight Light** | `styles/light.json` | Clean white surface with high-contrast slate ink |
+| **Emerald Matrix** | `styles/emerald.json` | Deep forest green dark palette with emerald highlights |
+| **Ocean Slate** | `styles/ocean.json` | Deep navy surface with sky-blue primary accents |
+
+---
+
+## All 22 Block Patterns (19 Categories)
+
+Registered pattern categories: `gratis-heroes`, `gratis-sections`, `gratis-cards`, `gratis-cta`, `gratis-features`, `gratis-pricing`, `gratis-team`, `gratis-testimonials`, `gratis-stats`, `gratis-faq`, `gratis-forms`, `gratis-navigation`, `gratis-footer`, `gratis-blog`, `gratis-portfolio`, `gratis-woocommerce`, `gratis-membership`, `gratis-about`, `gratis-contact`.
+
+| Pattern Title | Slug | Categories |
+|---|---|---|
+| About — Split with Image | `gratis/about-split` | `gratis-about` |
+| Content — Alternating Image Text | `gratis/alternating-sections` | `gratis-sections` |
+| Blog — Latest Posts Grid | `gratis/blog-grid` | `gratis-blog` |
+| Comparison — vs Competitors | `gratis/comparison-table` | `gratis-sections` |
+| Contact — Split Layout | `gratis/contact-split` | `gratis-contact`, `gratis-forms` |
+| CTA — Centered Banner | `gratis/cta-centered` | `gratis-cta` |
+| FAQ — Accordion | `gratis/faq` | `gratis-faq` |
+| Features — 3 Column Grid | `gratis/features-grid` | `gratis-features` |
+| Hero — Bold Centered | `gratis/hero-bold` | `gratis-heroes` |
+| Hero — Gradient | `gratis/hero-gradient` | `gratis-heroes` |
+| Hero — Minimal | `gratis/hero-minimal` | `gratis-heroes` |
+| Hero — Split Image | `gratis/hero-split` | `gratis-heroes` |
+| Product Landing — Gratis Suite | `gratis-theme/landing-product` | `gratis-sections`, `gratis-heroes`, `featured` |
+| Logo Bar — Trusted By | `gratis/logo-bar` | `gratis-sections` |
+| Membership — Content Gate | `gratis/membership-gate` | `gratis-membership` |
+| Newsletter — Inline Signup | `gratis/newsletter` | `gratis-forms`, `gratis-cta` |
+| Portfolio — Masonry Grid | `gratis/portfolio-grid` | `gratis-portfolio` |
+| Pricing — 3 Cards | `gratis/pricing-cards` | `gratis-pricing` |
+| Stats — Counter Row | `gratis/stats-row` | `gratis-stats` |
+| Team — Cards | `gratis/team-cards` | `gratis-team` |
+| Testimonials — Grid | `gratis/testimonials-grid` | `gratis-testimonials` |
+| Timeline — Vertical | `gratis/timeline` | `gratis-sections` |
+
+---
+
+## All 17 Custom Block Styles (`register_block_style`)
+
+| Core Block | Registered Styles |
 |---|---|
-| Heroes | Bold Centered, Split Image, Minimal, Gradient |
-| Sections | Alternating, Logo Bar, Comparison Table, Timeline |
-| Pricing | 3-tier cards with Popular badge |
-| Testimonials | 3-column review cards |
-| FAQ | Accordion with sidebar |
-| Team | Member cards with avatar |
-| Contact | Split layout with form |
-| Forms | Newsletter inline signup |
-| Portfolio | Masonry grid |
-| About | Split with image |
-| Membership | Content gate |
-| Blog | Latest posts grid |
+| `core/button` | `outline`, `ghost`, `pill`, `icon-only` |
+| `core/group` | `card`, `card-dark`, `glass`, `bordered` |
+| `core/image` | `rounded`, `shadow`, `border` |
+| `core/list` | `check`, `no-disc` |
+| `core/quote` | `large`, `plain` |
+| `core/separator` | `thick`, `dotted` |
 
 ---
 
-## Live Search
+## 18 FSE Templates & 5 Template Parts
 
-Add to any page with an HTML block:
+- **Core Templates (`templates/*.html`):** `index`, `single`, `page`, `archive`, `search`, `404`, `blank`, `full-width`, `landing`, `page-search-page`
+- **WooCommerce Templates:** `archive-product`, `single-product`, `page-cart`, `page-checkout`
+- **Gratis Suite CPT Templates:** `archive-gratis_doc`, `single-gratis_doc`, `archive-gratis_event`, `archive-gratis_course`
+- **Template Parts (`parts/*.html`):** `header`, `header-dark`, `header-minimal`, `footer`, `footer-minimal`
+
+---
+
+## Interactive Vanilla JS Components (`0 KB` jQuery, `~7 KB` JS)
+
+### Live REST Search (`assets/js/search.js`)
+
+Debounced (200ms) search against `/wp-json/wp/v2/search` using `AbortController` and safe `createElement` + `textContent` DOM rendering. Add anywhere with a Custom HTML block:
 
 ```html
 <div class="gratis-search-wrap">
-  <input type="search" class="gratis-search-input" placeholder="Search...">
+  <input type="search" class="gratis-search-input" aria-label="Search site" placeholder="Search...">
 </div>
 ```
 
----
+### Toast & Bell Notifications (`assets/js/notifications.js`)
 
-## Notifications API
+Provides `window.GRATIS.toast()` and `window.GRATIS.notify()` (including a WooCommerce `added_to_cart` listener):
 
 ```javascript
-// Toast notifications
-GRATIS.toast("Saved!", "success");
-GRATIS.toast("Error occurred", "error", 8000);
-
-// Bell panel notifications
-GRATIS.notify("New comment", "info", "/post/1");
+GRATIS.toast("Changes saved cleanly.", "success");
+GRATIS.toast("Connection timed out.", "error", 8000);
+GRATIS.notify("New order #1042 received", "info", "/orders/1042");
 ```
 
----
+Bell panel markup:
 
-## Performance
+```html
+<div class="gratis-bell" tabindex="0" role="button" aria-label="Open notifications panel">
+  <span class="gratis-bell-icon" aria-hidden="true">🔔</span>
+  <span class="gratis-bell-badge" aria-live="polite"></span>
+  <div class="gratis-bell-panel">
+    <div class="gratis-bell-panel-header">Notifications</div>
+    <div class="gratis-bell-list"></div>
+  </div>
+</div>
+```
 
-| Metric | Score |
-|---|---|
-| PageSpeed Performance | 100/100 |
-| PageSpeed SEO | 100/100 |
-| PageSpeed Best Practices | 100/100 |
-| PageSpeed Accessibility | 89/100 |
-| FCP | 1.2s |
-| LCP | 1.3s |
-| TBT | 0ms |
-| CLS | 0.002 |
+### Scroll Reveal (`assets/js/animations.js`)
 
----
-
-## Requirements
-
-- WordPress 6.5+
-- PHP 7.4+ (8.4+ recommended)
-- No page builder required
+`IntersectionObserver` reveal for `.gratis-reveal` elements, strictly gated behind `@media (prefers-reduced-motion: no-preference)`.
 
 ---
 
-## License
+## Accessibility & Performance
 
-GPL-2.0-or-later — see [LICENSE](https://www.gnu.org/licenses/gpl-2.0.html)
-
-Free to use, modify, and distribute. Commercial use allowed.
+- Skip link (`.gratis-skip-link`), keyboard-accessible `wp:details` FAQ accordions, 44x44px touch targets, and WCAG AA contrast tokens across all 4 style variations
+- Zero external font CDN calls, zero jQuery, and zero plugin-territory meta/cache hooks in `functions.php` (SEO and cache headers live in `gratis-seo` and `gratis-cache`)
 
 ---
 
-## Contributing
+## Requirements & License
 
-Issues and PRs welcome. See [gratis.superglobalsdevelopment.com/docs](https://gratis.superglobalsdevelopment.com/docs/) for documentation.
+- WordPress 6.5+ (tested up to 7.1)
+- PHP 7.4+ (8.1+ recommended)
+- GPL-2.0-or-later — see [LICENSE](https://www.gnu.org/licenses/gpl-2.0.html)
+- Standalone theme validation: `php tests/validate-theme.php`

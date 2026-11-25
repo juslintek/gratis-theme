@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420" role="img" aria-labelledby="feature-editor-title">
+  <title id="feature-editor-title">Visual Block Editor Wireframe Illustration</title>
+  <rect width="600" height="420" rx="20" fill="#0d0f12"/>
+  <rect x="28" y="28" width="544" height="364" rx="14" fill="#131720" stroke="#273247" stroke-width="1.5"/>
+  <rect x="28" y="28" width="544" height="44" rx="14" fill="#181e2b"/>
+  <rect x="48" y="42" width="28" height="16" rx="4" fill="#22c55e"/>
+  <rect x="88" y="44" width="90" height="12" rx="6" fill="#334155"/>
+  <rect x="478" y="40" width="76" height="20" rx="6" fill="#2563eb"/>
+  <rect x="48" y="92" width="128" height="280" rx="10" fill="#0d1117" stroke="#222c3f"/>
+  <rect x="64" y="110" width="96" height="10" rx="5" fill="#94a3b8"/>
+  <rect x="64" y="136" width="96" height="28" rx="6" fill="#1a2233" stroke="#34d399" stroke-opacity="0.5"/>
+  <rect x="64" y="174" width="96" height="28" rx="6" fill="#151b28"/>
+  <rect x="64" y="212" width="96" height="28" rx="6" fill="#151b28"/>
+  <rect x="64" y="250" width="96" height="28" rx="6" fill="#151b28"/>
+  <rect x="196" y="92" width="232" height="280" rx="10" fill="#0d0f12" stroke="#2c384e" stroke-dasharray="6 4"/>
+  <rect x="216" y="114" width="192" height="72" rx="8" fill="#161e2e" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="232" y="132" width="120" height="12" rx="6" fill="#f8fafc"/>
+  <rect x="232" y="154" width="156" height="8" rx="4" fill="#94a3b8"/>
+  <rect x="216" y="202" width="90" height="90" rx="8" fill="#161e2e" stroke="#2b374e"/>
+  <rect x="318" y="202" width="90" height="90" rx="8" fill="#161e2e" stroke="#2b374e"/>
+  <circle cx="261" cy="236" r="16" fill="#22c55e" fill-opacity="0.25"/>
+  <circle cx="363" cy="236" r="16" fill="#38bdf8" fill-opacity="0.25"/>
+  <rect x="216" y="308" width="192" height="44" rx="8" fill="#161e2e" stroke="#2b374e"/>
+  <rect x="232" y="324" width="92" height="12" rx="6" fill="#22c55e"/>
+  <rect x="444" y="92" width="110" height="280" rx="10" fill="#0d1117" stroke="#222c3f"/>
+  <rect x="458" y="112" width="82" height="10" rx="5" fill="#e2e8f0"/>
+  <circle cx="472" cy="146" r="10" fill="#22c55e"/>
+  <circle cx="499" cy="146" r="10" fill="#38bdf8"/>
+  <circle cx="526" cy="146" r="10" fill="#f59e0b"/>
+  <rect x="458" y="176" width="82" height="18" rx="4" fill="#181e2b"/>
+  <rect x="458" y="204" width="82" height="18" rx="4" fill="#181e2b"/>
+  <rect x="458" y="232" width="82" height="18" rx="4" fill="#181e2b"/>
+</svg>
