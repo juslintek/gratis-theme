@@ -224,57 +224,57 @@ add_action('wp_head', function () {
 // ── Block styles registration ─────────────────────────────────────────────────
 add_action('init', function () {
     // Button variants
-    register_block_style('core/button', ['name' => 'outline',   'label' => 'Outline']);
-    register_block_style('core/button', ['name' => 'ghost',     'label' => 'Ghost']);
-    register_block_style('core/button', ['name' => 'pill',      'label' => 'Pill']);
-    register_block_style('core/button', ['name' => 'icon-only', 'label' => 'Icon Only']);
+    register_block_style('core/button', ['name' => 'outline',   'label' => __('Outline', 'gratis')]);
+    register_block_style('core/button', ['name' => 'ghost',     'label' => __('Ghost', 'gratis')]);
+    register_block_style('core/button', ['name' => 'pill',      'label' => __('Pill', 'gratis')]);
+    register_block_style('core/button', ['name' => 'icon-only', 'label' => __('Icon Only', 'gratis')]);
 
     // Image variants
-    register_block_style('core/image', ['name' => 'rounded',    'label' => 'Rounded']);
-    register_block_style('core/image', ['name' => 'shadow',     'label' => 'Shadow']);
-    register_block_style('core/image', ['name' => 'border',     'label' => 'Border']);
+    register_block_style('core/image', ['name' => 'rounded',    'label' => __('Rounded', 'gratis')]);
+    register_block_style('core/image', ['name' => 'shadow',     'label' => __('Shadow', 'gratis')]);
+    register_block_style('core/image', ['name' => 'border',     'label' => __('Border', 'gratis')]);
 
     // Group/section variants
-    register_block_style('core/group', ['name' => 'card',       'label' => 'Card']);
-    register_block_style('core/group', ['name' => 'card-dark',  'label' => 'Card Dark']);
-    register_block_style('core/group', ['name' => 'glass',      'label' => 'Glass']);
-    register_block_style('core/group', ['name' => 'bordered',   'label' => 'Bordered']);
+    register_block_style('core/group', ['name' => 'card',       'label' => __('Card', 'gratis')]);
+    register_block_style('core/group', ['name' => 'card-dark',  'label' => __('Card Dark', 'gratis')]);
+    register_block_style('core/group', ['name' => 'glass',      'label' => __('Glass', 'gratis')]);
+    register_block_style('core/group', ['name' => 'bordered',   'label' => __('Bordered', 'gratis')]);
 
     // Separator variants
-    register_block_style('core/separator', ['name' => 'thick',  'label' => 'Thick']);
-    register_block_style('core/separator', ['name' => 'dotted', 'label' => 'Dotted']);
+    register_block_style('core/separator', ['name' => 'thick',  'label' => __('Thick', 'gratis')]);
+    register_block_style('core/separator', ['name' => 'dotted', 'label' => __('Dotted', 'gratis')]);
 
     // Quote variants
-    register_block_style('core/quote', ['name' => 'large',      'label' => 'Large']);
-    register_block_style('core/quote', ['name' => 'plain',      'label' => 'Plain']);
+    register_block_style('core/quote', ['name' => 'large',      'label' => __('Large', 'gratis')]);
+    register_block_style('core/quote', ['name' => 'plain',      'label' => __('Plain', 'gratis')]);
 
     // List variants
-    register_block_style('core/list', ['name' => 'check',       'label' => 'Checkmarks']);
-    register_block_style('core/list', ['name' => 'no-disc',     'label' => 'No Bullet']);
+    register_block_style('core/list', ['name' => 'check',       'label' => __('Checkmarks', 'gratis')]);
+    register_block_style('core/list', ['name' => 'no-disc',     'label' => __('No Bullet', 'gratis')]);
 });
 
 // ── Pattern categories ────────────────────────────────────────────────────────
 add_action('init', function () {
     $categories = [
-        'gratis-heroes'    => 'Heroes',
-        'gratis-sections'  => 'Sections',
-        'gratis-cards'     => 'Cards',
-        'gratis-cta'       => 'Call to Action',
-        'gratis-features'  => 'Features',
-        'gratis-pricing'   => 'Pricing',
-        'gratis-team'      => 'Team',
-        'gratis-testimonials' => 'Testimonials',
-        'gratis-stats'     => 'Stats',
-        'gratis-faq'       => 'FAQ',
-        'gratis-forms'     => 'Forms',
-        'gratis-navigation'=> 'Navigation',
-        'gratis-footer'    => 'Footer',
-        'gratis-blog'      => 'Blog',
-        'gratis-portfolio'  => 'Portfolio',
-        'gratis-woocommerce'=> 'WooCommerce',
-        'gratis-membership' => 'Membership',
-        'gratis-about'     => 'About',
-        'gratis-contact'   => 'Contact',
+        'gratis-heroes'       => __('Heroes', 'gratis'),
+        'gratis-sections'     => __('Sections', 'gratis'),
+        'gratis-cards'        => __('Cards', 'gratis'),
+        'gratis-cta'          => __('Call to Action', 'gratis'),
+        'gratis-features'     => __('Features', 'gratis'),
+        'gratis-pricing'      => __('Pricing', 'gratis'),
+        'gratis-team'         => __('Team', 'gratis'),
+        'gratis-testimonials' => __('Testimonials', 'gratis'),
+        'gratis-stats'        => __('Stats', 'gratis'),
+        'gratis-faq'          => __('FAQ', 'gratis'),
+        'gratis-forms'        => __('Forms', 'gratis'),
+        'gratis-navigation'   => __('Navigation', 'gratis'),
+        'gratis-footer'       => __('Footer', 'gratis'),
+        'gratis-blog'         => __('Blog', 'gratis'),
+        'gratis-portfolio'    => __('Portfolio', 'gratis'),
+        'gratis-woocommerce'  => __('WooCommerce', 'gratis'),
+        'gratis-membership'   => __('Membership', 'gratis'),
+        'gratis-about'        => __('About', 'gratis'),
+        'gratis-contact'      => __('Contact', 'gratis'),
     ];
     foreach ($categories as $slug => $label) {
         register_block_pattern_category($slug, ['label' => $label]);
@@ -604,9 +604,13 @@ add_filter('render_block', function ($html, $block) {
     }
     $words   = str_word_count(wp_strip_all_tags($post->post_content));
     $minutes = max(1, (int) round($words / 200));
-    $rt_html = '<p class="reading-time" aria-label="' . esc_attr($minutes . ' minute read') . '" style="font-size:12px;color:rgba(255,255,255,0.45);margin:4px 0 0">'
+    /* translators: %d: estimated reading time in minutes. */
+    $aria_label = sprintf(_n('%d minute read', '%d minute read', $minutes, 'gratis'), $minutes);
+    /* translators: %d: estimated reading time in minutes. */
+    $short_label = sprintf(_n('%d min read', '%d min read', $minutes, 'gratis'), $minutes);
+    $rt_html     = '<p class="reading-time" aria-label="' . esc_attr($aria_label) . '" style="font-size:12px;color:rgba(255,255,255,0.45);margin:4px 0 0">'
         . '<span aria-hidden="true">⏱ </span>'
-        . esc_html($minutes . ' min read')
+        . esc_html($short_label)
         . '</p>';
     return $html . $rt_html;
 }, 10, 2);

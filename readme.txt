@@ -56,6 +56,10 @@ Call from any JavaScript: `GRATIS.toast("Message", "success");` or `GRATIS.notif
 
 == Changelog ==
 
+= 1.0.1 =
+* Added explicit GPL-2.0-or-later copyright header in style.css and packaged archive under the `gratis/` theme slug directory.
+* Internationalized block style labels, pattern category labels, and reading-time strings under the `gratis` text domain.
+
 = 1.0.0 =
 * Initial release
 * 22 block patterns across 12 categories
